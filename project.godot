@@ -24,6 +24,12 @@ window/size/viewport_height=1080
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="npc"
+2d_physics/layer_3="terrain"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
