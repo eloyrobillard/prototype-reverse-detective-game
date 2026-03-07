@@ -1,18 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://bf2xnriqgfa5i"]
+[gd_scene load_steps=14 format=3 uid="uid://bf2xnriqgfa5i"]
 
 [ext_resource type="Texture2D" uid="uid://dvn1w8dosdosj" path="res://assets/plaza.png" id="1_aup4n"]
 [ext_resource type="PackedScene" uid="uid://dsq2pn6a0o5d1" path="res://scenes/genya.tscn" id="2_576sq"]
 [ext_resource type="PackedScene" uid="uid://6ja46rwum77i" path="res://scenes/static_mud_man.tscn" id="3_e5028"]
 [ext_resource type="PackedScene" uid="uid://dii2gtu0ptvg8" path="res://scenes/alucard.tscn" id="4_4qx50"]
+[ext_resource type="PackedScene" uid="uid://drpwpfqee3186" path="res://scenes/sitting_villager.tscn" id="5_5qyod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_576sq"]
-size = Vector2(16, 20)
+size = Vector2(23, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5028"]
-size = Vector2(38, 20)
+size = Vector2(45, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qx50"]
-size = Vector2(35, 46)
+size = Vector2(47.5, 62)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e5028"]
 normal = Vector2(0, 1)
@@ -20,66 +21,73 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_576sq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qyod"]
-size = Vector2(17, 16)
+size = Vector2(24.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d468g"]
-size = Vector2(34, 16)
+size = Vector2(44, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgagd"]
-size = Vector2(32, 48)
+size = Vector2(44, 61)
 
 [node name="Plaza" type="StaticBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlazaSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.282, 1.282)
 texture = ExtResource("1_aup4n")
 
 [node name="Genya" parent="." instance=ExtResource("2_576sq")]
-position = Vector2(-1, 48)
+position = Vector2(-1, 61)
+scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Genya"]
 position = Vector2(1, -42)
-zoom = Vector2(6.8, 6.8)
-limit_left = -255
-limit_top = -79
-limit_right = 255
-limit_bottom = 79
+zoom = Vector2(5.2, 5.2)
+limit_left = -327
+limit_top = -102
+limit_right = 327
+limit_bottom = 102
 
 [node name="LeftStairBottom" type="CollisionShape2D" parent="."]
-position = Vector2(-216, 59)
+position = Vector2(-278.5, 73)
 shape = SubResource("RectangleShape2D_576sq")
 
 [node name="LeftStairTop" type="CollisionShape2D" parent="."]
-position = Vector2(-243, 43)
+position = Vector2(-309.5, 53)
 shape = SubResource("RectangleShape2D_e5028")
 
 [node name="LeftCeilingCorner" type="CollisionShape2D" parent="."]
-position = Vector2(-243.5, -40)
+position = Vector2(-310.25, -51)
 shape = SubResource("RectangleShape2D_4qx50")
 
 [node name="Ceiling" type="CollisionShape2D" parent="."]
-position = Vector2(0, -65)
-scale = Vector2(2.6800032, 1)
+position = Vector2(0, -82)
+scale = Vector2(3.555, 1)
 shape = SubResource("WorldBoundaryShape2D_e5028")
 
 [node name="Floor" type="CollisionShape2D" parent="."]
-position = Vector2(0, 66)
-scale = Vector2(2.56, 1)
+position = Vector2(0, 84)
+scale = Vector2(3.4, 1)
 shape = SubResource("WorldBoundaryShape2D_576sq")
 
 [node name="RightStairBottom" type="CollisionShape2D" parent="."]
-position = Vector2(217.5, 57)
+position = Vector2(279.75, 73)
 shape = SubResource("RectangleShape2D_5qyod")
 
 [node name="RightStairTop" type="CollisionShape2D" parent="."]
-position = Vector2(242, 41)
+position = Vector2(310, 53)
 shape = SubResource("RectangleShape2D_d468g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(241, -40)
+position = Vector2(310, -50.5)
 shape = SubResource("RectangleShape2D_wgagd")
 
 [node name="StaticMudMan" parent="." instance=ExtResource("3_e5028")]
-position = Vector2(-200, 54.000004)
+position = Vector2(-257, 69)
+scale = Vector2(1, 1)
 
 [node name="Alucard" parent="." instance=ExtResource("4_4qx50")]
-position = Vector2(-197, 36)
+position = Vector2(-251, 45)
+scale = Vector2(1, 1)
+
+[node name="SittingVillager" parent="." instance=ExtResource("5_5qyod")]
+position = Vector2(297, 38)
