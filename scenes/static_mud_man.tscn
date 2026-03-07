@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://6ja46rwum77i"]
+
+[ext_resource type="Texture2D" uid="uid://cfkm5kfcyyk8s" path="res://assets/PC _ Computer - Blasphemous - Enemies - Armature.png" id="1_otbey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u7jq"]
+atlas = ExtResource("1_otbey")
+region = Rect2(189, 41, 27, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5neg"]
+atlas = ExtResource("1_otbey")
+region = Rect2(216, 41, 27, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g5la"]
+atlas = ExtResource("1_otbey")
+region = Rect2(243, 41, 27, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rhdd"]
+atlas = ExtResource("1_otbey")
+region = Rect2(269, 41, 27, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo8k7"]
+atlas = ExtResource("1_otbey")
+region = Rect2(296, 41, 27, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qv6kp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u7jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5neg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g5la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rhdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo8k7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otbey"]
+size = Vector2(22, 28)
+
+[node name="StaticMudMan" type="StaticBody2D"]
+scale = Vector2(0.78, 0.78)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qv6kp")
+autoplay = "default"
+frame_progress = 0.06707609
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_otbey")

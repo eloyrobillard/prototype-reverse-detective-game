@@ -98,13 +98,14 @@ radius = 8.0
 height = 46.0
 
 [node name="Genya" type="CharacterBody2D"]
+scale = Vector2(0.78, 0.78)
 script = ExtResource("1_ttbki")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6sft4")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.65586394
+frame_progress = 0.78909314
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_jwp2c")
