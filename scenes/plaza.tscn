@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf2xnriqgfa5i"]
+
+[ext_resource type="Texture2D" uid="uid://dvn1w8dosdosj" path="res://assets/plaza.png" id="1_aup4n"]
+[ext_resource type="PackedScene" uid="uid://dsq2pn6a0o5d1" path="res://scenes/genya.tscn" id="2_576sq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_576sq"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5028"]
+size = Vector2(38, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qx50"]
+size = Vector2(35, 46)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e5028"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_576sq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qyod"]
+size = Vector2(17, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d468g"]
+size = Vector2(34, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgagd"]
+size = Vector2(32, 48)
+
+[node name="Plaza" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aup4n")
+
+[node name="Genya" parent="." instance=ExtResource("2_576sq")]
+position = Vector2(-1, 43.105)
+
+[node name="Camera2D" type="Camera2D" parent="Genya"]
+position = Vector2(1, -42)
+zoom = Vector2(6.8, 6.8)
+limit_left = -255
+limit_top = -79
+limit_right = 255
+limit_bottom = 79
+
+[node name="LeftStairBottom" type="CollisionShape2D" parent="."]
+position = Vector2(-216, 59)
+shape = SubResource("RectangleShape2D_576sq")
+
+[node name="LeftStairTop" type="CollisionShape2D" parent="."]
+position = Vector2(-243, 43)
+shape = SubResource("RectangleShape2D_e5028")
+
+[node name="LeftCeilingCorner" type="CollisionShape2D" parent="."]
+position = Vector2(-243.5, -40)
+shape = SubResource("RectangleShape2D_4qx50")
+
+[node name="Ceiling" type="CollisionShape2D" parent="."]
+position = Vector2(0, -65)
+scale = Vector2(2.6800032, 1)
+shape = SubResource("WorldBoundaryShape2D_e5028")
+
+[node name="Floor" type="CollisionShape2D" parent="."]
+position = Vector2(0, 66)
+scale = Vector2(2.56, 1)
+shape = SubResource("WorldBoundaryShape2D_576sq")
+
+[node name="RightStairBottom" type="CollisionShape2D" parent="."]
+position = Vector2(217.5, 57)
+shape = SubResource("RectangleShape2D_5qyod")
+
+[node name="RightStairTop" type="CollisionShape2D" parent="."]
+position = Vector2(242, 41)
+shape = SubResource("RectangleShape2D_d468g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(241, -40)
+shape = SubResource("RectangleShape2D_wgagd")

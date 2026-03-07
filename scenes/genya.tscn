@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://dsq2pn6a0o5d1"]
+
+[ext_resource type="Texture2D" uid="uid://dr0pjgtd3vpua" path="res://assets/DS _ DSi - Castlevania_ Dawn of Sorrow - Non-Playable Characters - Genya Arikado.png" id="1_jwp2c"]
+[ext_resource type="Script" uid="uid://cwq0nymbeb56h" path="res://scripts/player.gd" id="1_ttbki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttbki"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(123, 60, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufrnj"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(3, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoxow"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(27, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqcow"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(52, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh4aj"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(76, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkslb"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(100, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11mmi"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(124, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yimhm"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(147, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7da8i"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(171, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr8ne"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(195, 113, 24, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk5r3"]
+atlas = ExtResource("1_jwp2c")
+region = Rect2(219, 113, 24, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sft4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttbki")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufrnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoxow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqcow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh4aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkslb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11mmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yimhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7da8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr8ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk5r3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwp2c"]
+radius = 8.0
+height = 46.0
+
+[node name="Genya" type="CharacterBody2D"]
+script = ExtResource("1_ttbki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6sft4")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.65586394
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jwp2c")
