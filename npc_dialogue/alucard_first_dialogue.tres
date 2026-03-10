@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://crdqe6vwulr5s"]
+
+[ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_bsol2"]
+[ext_resource type="Texture2D" uid="uid://c6bj5f8o85qxf" path="res://assets/character_icons/alucard.png" id="1_u21hv"]
+
+[resource]
+script = ExtResource("1_bsol2")
+npc_name = "Gino"
+npc_icon = ExtResource("1_u21hv")
+lines = Array[String](["Do not judge me for this, please. This man is my brother, and will not let me sit but on his back..."])
+metadata/_custom_type_script = "uid://5lyu4kom16io"
