@@ -4,7 +4,7 @@ var tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	visible = false
+	hide()
 	
 	tween = get_tree().create_tween().bind_node(self).set_loops()
 	tween.tween_property(self, "visible", false, 0.15)
@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 
 func set_active(flag: bool) -> void:
 	if flag:
-		visible = true
+		show()
 		tween.play()
 	else:
 		tween.pause()
-		visible = false
+		hide()

@@ -10,7 +10,6 @@ var waiting_for_player = false
 func _ready() -> void:
 	self.text = ""
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if text_idx < final_text.length():
@@ -20,6 +19,7 @@ func _process(delta: float) -> void:
 		dialogue_cursor.set_active(true)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if text_idx < final_text.length():
-		text = final_text
-		text_idx = final_text.length()
+	if event is InputEventKey:
+		if text_idx < final_text.length():
+			text = final_text
+			text_idx = final_text.length()
