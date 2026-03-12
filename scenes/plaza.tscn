@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf2xnriqgfa5i"]
+[gd_scene load_steps=20 format=3 uid="uid://bf2xnriqgfa5i"]
 
 [ext_resource type="Texture2D" uid="uid://dvn1w8dosdosj" path="res://assets/plaza.png" id="1_aup4n"]
 [ext_resource type="PackedScene" uid="uid://dsq2pn6a0o5d1" path="res://scenes/genya.tscn" id="2_576sq"]
 [ext_resource type="PackedScene" uid="uid://6ja46rwum77i" path="res://scenes/static_mud_man.tscn" id="3_e5028"]
 [ext_resource type="PackedScene" uid="uid://dii2gtu0ptvg8" path="res://scenes/alucard.tscn" id="4_4qx50"]
 [ext_resource type="PackedScene" uid="uid://drpwpfqee3186" path="res://scenes/sitting_villager.tscn" id="5_5qyod"]
+[ext_resource type="Texture2D" uid="uid://64ocnfmbi78i" path="res://assets/character_icons/dialogue_cursor.png" id="7_d7q6e"]
+[ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="7_wgagd"]
+[ext_resource type="Script" uid="uid://dcfejpiwg7mew" path="res://scripts/dialogue_cursor.gd" id="8_d7q6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_576sq"]
 size = Vector2(23, 20)
@@ -28,6 +31,15 @@ size = Vector2(44, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgagd"]
 size = Vector2(44, 61)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d468g"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="SystemFont" id="SystemFont_wgagd"]
+font_names = PackedStringArray("Igiari")
+
+[sub_resource type="SystemFont" id="SystemFont_d468g"]
+font_names = PackedStringArray("Igiari")
 
 [node name="Plaza" type="StaticBody2D"]
 
@@ -91,3 +103,65 @@ scale = Vector2(1, 1)
 
 [node name="SittingVillager" parent="." instance=ExtResource("5_5qyod")]
 position = Vector2(297, 38)
+
+[node name="DialogueLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueArea" type="Panel" parent="DialogueLayer"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.6
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d468g")
+
+[node name="SpeakerIcon" type="TextureRect" parent="DialogueLayer/DialogueArea"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -711.60486
+offset_top = -524.0
+grow_horizontal = 0
+texture = ExtResource("7_wgagd")
+stretch_mode = 5
+
+[node name="SpeakerName" type="Label" parent="DialogueLayer/DialogueArea"]
+layout_mode = 1
+offset_left = 218.0
+offset_top = 36.0
+offset_right = 482.0
+offset_bottom = 95.0
+theme_override_fonts/font = SubResource("SystemFont_wgagd")
+theme_override_font_sizes/font_size = 54
+text = "Genya"
+
+[node name="Dialogue" type="Label" parent="DialogueLayer/DialogueArea"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 218.0
+offset_top = 113.0
+offset_right = 1497.0
+offset_bottom = 338.0
+theme_override_fonts/font = SubResource("SystemFont_d468g")
+theme_override_font_sizes/font_size = 54
+text = "Unfortunately, there was no one in the previous life to teach me to shut my mouth. That would have come in handy when facing the guardian of Heaven's gate..."
+autowrap_mode = 2
+
+[node name="DialogueCursor" type="TextureRect" parent="DialogueLayer/DialogueArea"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -93.0
+offset_right = -55.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("7_d7q6e")
+stretch_mode = 5
+script = ExtResource("8_d7q6e")
