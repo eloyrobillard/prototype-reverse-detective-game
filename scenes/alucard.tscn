@@ -56,7 +56,7 @@ frame_progress = 1.0
 flip_h = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-6.4102564, 0)
+position = Vector2(-38.46154, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.73076916, 5)

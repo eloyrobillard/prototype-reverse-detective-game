@@ -35,3 +35,11 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("walk")
 
 	move_and_slide()
+
+
+func _on_dialogue_layer_running_dialogue() -> void:
+	set_physics_process(false)
+
+
+func _on_dialogue_layer_dialogue_ended() -> void:
+	set_physics_process(true)

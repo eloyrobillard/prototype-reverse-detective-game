@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://crdqe6vwulr5s"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://crdqe6vwulr5s"]
 
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_bsol2"]
 [ext_resource type="Texture2D" uid="uid://c6bj5f8o85qxf" path="res://assets/character_icons/alucard.png" id="1_u21hv"]
+[ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="2_dhu4h"]
 
 [resource]
 script = ExtResource("1_bsol2")
-npc_name = "Gino"
-npc_icon = ExtResource("1_u21hv")
-lines = Array[String](["Do not judge me for this, please. This man is my brother, and will not let me sit but on his back..."])
+speaker_names = Array[String](["Genya", "Alucard"])
+speaker_icons = Array[Texture2D]([ExtResource("2_dhu4h"), ExtResource("1_u21hv")])
+lines = Array[String](["Well now. What sort of manners leads a man to sit on his brethrens?", "Do not judge me for this, please. This man is my brother, and will not let me sit but on his back..."])
+line_speaker_name_index = Array[int]([0, 1])
+line_speaker_icon_index = Array[int]([0, 1])
 metadata/_custom_type_script = "uid://5lyu4kom16io"
