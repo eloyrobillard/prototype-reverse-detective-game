@@ -10,8 +10,6 @@ extends CanvasLayer
 signal running_dialogue
 signal dialogue_ended
 
-var waiting_for_player = false
-
 var current_line = -1
 var max_lines = 0
 var visible_chars = 0
@@ -29,23 +27,24 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if visible_chars < len(dialogue_text.text):
+	if visible_chars < dialogue_text.text.length():
+		visible_chars += 30 * delta
 		dialogue_text.visible_characters = int(visible_chars)
-		visible_chars += delta
-	elif not waiting_for_player:
+	else:
 		dialogue_cursor.set_active(true)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if visible_chars < len(dialogue_text.text):
-			visible_chars = len(dialogue_text.text)
-			dialogue_text.visible_characters = visible_chars
-		else:
-			if current_line < len(current_dialogue.lines) - 1:
-				_set_line(current_line + 1)
+		if Input.is_action_just_pressed("select"):
+			if visible_chars < len(dialogue_text.text):
+				visible_chars = len(dialogue_text.text)
+				dialogue_text.visible_characters = visible_chars
 			else:
-				close_dialogue()
+				if current_line < len(current_dialogue.lines) - 1:
+					_set_line(current_line + 1)
+				else:
+					close_dialogue()
 
 
 func set_dialogue(dialogue: Dialogue) -> void:
@@ -61,6 +60,7 @@ func set_dialogue(dialogue: Dialogue) -> void:
 func _set_line(line_idx: int) -> void:
 	if line_idx < max_lines:
 		visible_chars = 0
+		dialogue_text.visible_characters = 0
 		dialogue_text.text = current_dialogue.lines[line_idx]
 		current_line = line_idx
 
@@ -72,6 +72,8 @@ func _set_line(line_idx: int) -> void:
 
 
 func close_dialogue() -> void:
+	visible_chars = 0
+	dialogue_text.visible_characters = 0
 	visible = false
 	current_dialogue = default_dialogue
 	running_dialogue.emit()
