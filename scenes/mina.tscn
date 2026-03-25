@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://co6s8pjm7kcws"]
+
+[ext_resource type="Texture2D" uid="uid://drj2fs1mhkawp" path="res://assets/Game Boy Advance - Castlevania_ Aria of Sorrow - Non-Playable Characters - Mina Hakuba.png" id="1_kw6yh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw6yh"]
+atlas = ExtResource("1_kw6yh")
+region = Rect2(184, 49, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqpm8"]
+atlas = ExtResource("1_kw6yh")
+region = Rect2(152, 49, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crl2h"]
+atlas = ExtResource("1_kw6yh")
+region = Rect2(120, 49, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rch3q"]
+atlas = ExtResource("1_kw6yh")
+region = Rect2(88, 49, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbtd0"]
+atlas = ExtResource("1_kw6yh")
+region = Rect2(241, 12, 15, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7l4k"]
+atlas = ExtResource("1_kw6yh")
+region = Rect2(23, 1, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqpm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw6yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqpm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crl2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rch3q")
+}],
+"loop": true,
+"name": &"moon_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbtd0")
+}],
+"loop": false,
+"name": &"sitting",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7l4k")
+}],
+"loop": false,
+"name": &"standing",
+"speed": 1.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kw6yh"]
+radius = 7.0
+
+[node name="Mina" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aqpm8")
+animation = &"standing"
+autoplay = "standing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kw6yh")
