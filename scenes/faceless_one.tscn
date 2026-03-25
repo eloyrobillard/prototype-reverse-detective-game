@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://1gv6h42jeeed"]
+
+[ext_resource type="Texture2D" uid="uid://chcrp70hjlbsc" path="res://assets/PC _ Computer - Blasphemous 2 - Bosses - Faceless One, Chisel of Oblivion (Tutorial Boss).png" id="1_kjr0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4lwd"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(869, 1235, 66, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kkn0"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(0, 2572, 62, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0ios"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(62, 2572, 62, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdlr0"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(124, 2572, 62, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dor7s"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(186, 2572, 62, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjr0c"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(165, 2104, 55, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x6ij"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(110, 2104, 55, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj64w"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(55, 2104, 55, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e6rd"]
+atlas = ExtResource("1_kjr0c")
+region = Rect2(0, 2104, 55, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_me4n6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4lwd")
+}],
+"loop": false,
+"name": &"kneeling",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_5kkn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0ios")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_hdlr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dor7s")
+}],
+"loop": true,
+"name": &"prostrated",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjr0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x6ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj64w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e6rd")
+}],
+"loop": true,
+"name": &"rolling",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kjr0c"]
+radius = 16.27882
+
+[node name="FacelessOne" type="CharacterBody2D"]
+z_index = 1
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_me4n6")
+animation = &"prostrated"
+autoplay = "kneeling"
+frame_progress = 0.08681119
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kjr0c")
