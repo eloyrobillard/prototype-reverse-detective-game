@@ -9,6 +9,7 @@ extends CanvasLayer
 
 signal running_dialogue
 signal dialogue_ended
+signal alucard_dialogue_ended
 
 var current_line = -1
 var max_lines = 0
@@ -16,6 +17,7 @@ var visible_chars = 0
 
 var default_dialogue: Dialogue
 var current_dialogue: Dialogue
+var dialogue_end_callback: Callable
 
 
 # Called when the node enters the scene tree for the first time.
@@ -47,14 +49,17 @@ func _unhandled_input(event: InputEvent) -> void:
 					close_dialogue()
 
 
-func set_dialogue(dialogue: Dialogue) -> void:
+func set_dialogue(dialogue: Dialogue, callback: Callable) -> void:
 	dialogue_text.text = ""
 	current_dialogue = dialogue
+	dialogue_end_callback = callback
 
 	if len(dialogue.lines) > 0:
 		running_dialogue.emit()
 		max_lines = len(dialogue.lines)
 		_set_line(0)
+	else:
+		close_dialogue()
 
 
 func _set_line(line_idx: int) -> void:
@@ -78,10 +83,14 @@ func close_dialogue() -> void:
 	current_dialogue = default_dialogue
 	running_dialogue.emit()
 	dialogue_ended.emit()
+	dialogue_end_callback.call()
 	set_process(false)
 
 
 func _on_alucard_on_screen() -> void:
-	set_dialogue(dialogues[1])
+	var _on_alucard_dialogue_end = func() -> void:
+		alucard_dialogue_ended.emit()
+
+	set_dialogue(dialogues[1], _on_alucard_dialogue_end)
 	set_process(true)
 	visible = true

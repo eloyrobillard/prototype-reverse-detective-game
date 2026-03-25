@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal on_screen
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,3 +19,7 @@ func _process(delta: float) -> void:
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	animated_sprite_2d.play("sitting")
 	on_screen.emit()
+
+
+func _on_dialogue_layer_alucard_dialogue_ended() -> void:
+	visible_on_screen_notifier_2d.free()
