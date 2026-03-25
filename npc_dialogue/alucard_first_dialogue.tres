@@ -8,7 +8,7 @@
 script = ExtResource("1_bsol2")
 speaker_names = Array[String](["Genya", "Alucard"])
 speaker_icons = Array[Texture2D]([ExtResource("2_dhu4h"), ExtResource("1_u21hv")])
-lines = Array[String](["Well now. What sort of manners leads a man to sit on his brethrens?", "Do not judge me for this, please. This man is my brother, and will not let me sit but on his back..."])
+lines = Array[String](["Well now. What sort of manners lead a man to sit on his brethrens?", "Do not judge me for this, please. This man is my brother, and will not let me sit but on his back..."])
 line_speaker_name_index = Array[int]([0, 1])
 line_speaker_icon_index = Array[int]([0, 1])
 metadata/_custom_type_script = "uid://5lyu4kom16io"
