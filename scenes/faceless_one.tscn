@@ -88,13 +88,13 @@ radius = 16.27882
 
 [node name="FacelessOne" type="CharacterBody2D"]
 z_index = 1
-collision_mask = 4
+collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_me4n6")
 animation = &"prostrated"
 autoplay = "kneeling"
-frame_progress = 0.08681119
+frame_progress = 0.22045368
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kjr0c")
