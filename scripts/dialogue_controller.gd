@@ -10,6 +10,7 @@ extends CanvasLayer
 signal running_dialogue
 signal dialogue_ended
 signal alucard_dialogue_ended
+signal faceless_1_ended
 
 var current_line = -1
 var max_lines = 0
@@ -58,6 +59,8 @@ func set_dialogue(dialogue: Dialogue, callback: Callable) -> void:
 		running_dialogue.emit()
 		max_lines = len(dialogue.lines)
 		_set_line(0)
+		set_process(true)
+		visible = true
 	else:
 		close_dialogue()
 
@@ -92,5 +95,10 @@ func _on_alucard_on_screen() -> void:
 		alucard_dialogue_ended.emit()
 
 	set_dialogue(dialogues[1], _on_alucard_dialogue_end)
-	set_process(true)
-	visible = true
+
+
+func _on_faceless_event_1_trigger_start_faceless_event_1() -> void:
+	var _on_faceless_1_end = func() -> void:
+		faceless_1_ended.emit()
+
+	set_dialogue(dialogues[2], _on_faceless_1_end)

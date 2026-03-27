@@ -116,7 +116,7 @@ animations = [{
 radius = 8.0
 height = 46.0
 
-[node name="Genya" type="CharacterBody2D"]
+[node name="Genya" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.78, 0.78)
 collision_mask = 7
 script = ExtResource("1_ttbki")

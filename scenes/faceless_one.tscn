@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://1gv6h42jeeed"]
+[gd_scene load_steps=14 format=3 uid="uid://1gv6h42jeeed"]
 
 [ext_resource type="Texture2D" uid="uid://chcrp70hjlbsc" path="res://assets/PC _ Computer - Blasphemous 2 - Bosses - Faceless One, Chisel of Oblivion (Tutorial Boss).png" id="1_kjr0c"]
+[ext_resource type="Script" uid="uid://bejgh74jtrhsc" path="res://scripts/faceless_one.gd" id="1_r4lwd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4lwd"]
 atlas = ExtResource("1_kjr0c")
@@ -89,12 +90,14 @@ radius = 16.27882
 [node name="FacelessOne" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
+script = ExtResource("1_r4lwd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_me4n6")
-animation = &"prostrated"
+animation = &"rolling"
 autoplay = "kneeling"
-frame_progress = 0.22045368
+frame = 3
+frame_progress = 0.49664906
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kjr0c")
