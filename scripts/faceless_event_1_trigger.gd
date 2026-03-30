@@ -16,3 +16,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		start_faceless_event_1.emit()
+
+
+func _on_dialogue_layer_faceless_1_ended() -> void:
+	queue_free()
