@@ -115,13 +115,11 @@ position = Vector2(310, -50.5)
 shape = SubResource("RectangleShape2D_wgagd")
 
 [node name="StaticMudMan" parent="." instance=ExtResource("3_e5028")]
-visible = false
-position = Vector2(-257, 69)
+position = Vector2(-248, 69)
 scale = Vector2(1, 1)
 
 [node name="Alucard" parent="." instance=ExtResource("4_4qx50")]
-visible = false
-position = Vector2(-251, 45)
+position = Vector2(-223, 59)
 scale = Vector2(1, 1)
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]

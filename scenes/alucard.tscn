@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dii2gtu0ptvg8"]
+[gd_scene load_steps=10 format=3 uid="uid://dii2gtu0ptvg8"]
 
 [ext_resource type="Script" uid="uid://e8qvdww2cm6e" path="res://scripts/alucard.gd" id="1_g5e3i"]
 [ext_resource type="Texture2D" uid="uid://bvu8th12s1pis" path="res://assets/PlayStation - Castlevania_ Symphony of the Night - Playable Characters - Alucard.png" id="1_x75ur"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3tob"]
+atlas = ExtResource("1_x75ur")
+region = Rect2(667, 285, 40, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5e3i"]
 atlas = ExtResource("1_x75ur")
@@ -21,6 +25,14 @@ region = Rect2(743, 1250, 45, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j3tob"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3tob")
+}],
+"loop": false,
+"name": &"kneeling",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g5e3i")
@@ -50,16 +62,9 @@ script = ExtResource("1_g5e3i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j3tob")
-animation = &"sitting"
-frame = 3
+animation = &"kneeling"
 frame_progress = 1.0
-flip_h = true
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-38.46154, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.73076916, 5)
 shape = SubResource("RectangleShape2D_x75ur")
-
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
