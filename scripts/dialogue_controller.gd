@@ -11,6 +11,7 @@ signal running_dialogue
 signal dialogue_ended
 signal alucard_dialogue_ended
 signal faceless_1_ended
+signal faceless_2_ended
 
 var current_line = -1
 var max_lines = 0
@@ -102,3 +103,10 @@ func _on_faceless_event_1_trigger_start_faceless_event_1() -> void:
 		faceless_1_ended.emit()
 
 	set_dialogue(dialogues[2], _on_faceless_1_end)
+
+
+func _on_faceless_one_launch_dialogue_2() -> void:
+	var _on_faceless_2_end = func() -> void:
+		faceless_2_ended.emit()
+
+	set_dialogue(dialogues[3], _on_faceless_2_end)

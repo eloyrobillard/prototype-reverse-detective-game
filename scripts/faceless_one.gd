@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+signal launch_dialogue_2
+
 const SPEED = 150
 
+var prostrated = false
 var go_left = false
 
 
@@ -29,6 +32,8 @@ func _process(delta: float) -> void:
 			animated_sprite_2d.flip_h = true
 		elif velocity.x > 0:
 			animated_sprite_2d.flip_h = false
+	elif prostrated:
+		animated_sprite_2d.play("prostrated")
 	else:
 		animated_sprite_2d.play("kneeling")
 
@@ -40,3 +45,15 @@ func _on_dialogue_layer_faceless_1_ended() -> void:
 	go_left = true
 	await get_tree().create_timer(2).timeout
 	go_left = false
+
+	# make faceless face right
+	animated_sprite_2d.flip_h = false
+	launch_dialogue_2.emit()
+
+
+func _on_dialogue_layer_faceless_2_ended() -> void:
+	visible = true
+	go_left = true
+	await get_tree().create_timer(1).timeout
+	go_left = false
+	prostrated = true

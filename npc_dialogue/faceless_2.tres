@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://c1d521oqnbwor"]
+
+[ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_vddh3"]
+[ext_resource type="Texture2D" uid="uid://mtfrjwnl1nqb" path="res://assets/character_icons/PC _ Computer - Blasphemous 2 - Bosses - Faceless One, Chisel of Oblivion (Tutorial Boss).png" id="2_iql2i"]
+[ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="3_o35qp"]
+
+[resource]
+script = ExtResource("1_vddh3")
+speaker_names = Array[String](["Faceless", "Genya"])
+speaker_icons = Array[Texture2D]([ExtResource("2_iql2i"), ExtResource("3_o35qp")])
+lines = Array[String](["Hello, Faceless One. Why the hurry?", "Genya, haven't you heard? The Angel of Mercy has bestowed us with their presence, and is currently dispensing alms to the tormented souls of the subterranean realm!", "The Angel of Mercy...! A momentous occasion indeed. And you are just heading there, is that right?", "Just so, follow me!"])
+line_speaker_name_index = Array[int]([1, 0, 1, 0])
+line_speaker_icon_index = Array[int]([1, 0, 1, 0])
+metadata/_custom_type_script = "uid://5lyu4kom16io"
