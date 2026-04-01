@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 	if visible_chars < dialogue_text.text.length():
 		visible_chars += 30 * delta
 		dialogue_text.visible_characters = int(visible_chars)
+		dialogue_cursor.set_active(false)
 	else:
 		dialogue_cursor.set_active(true)
 
@@ -89,6 +90,7 @@ func close_dialogue() -> void:
 	running_dialogue.emit()
 	dialogue_ended.emit()
 	dialogue_end_callback.call()
+	dialogue_cursor.set_active(false)
 	set_process(false)
 
 
