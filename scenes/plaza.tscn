@@ -229,6 +229,7 @@ script = ExtResource("18_6lx30")
 shape = SubResource("RectangleShape2D_8na2w")
 
 [connection signal="alucard_dialogue_ended" from="DialogueLayer" to="Alucard" method="_on_dialogue_layer_alucard_dialogue_ended"]
+[connection signal="angel_1_ended" from="DialogueLayer" to="Mina" method="_on_dialogue_layer_angel_1_ended"]
 [connection signal="dialogue_ended" from="DialogueLayer" to="Genya" method="_on_dialogue_layer_dialogue_ended"]
 [connection signal="faceless_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_1_ended"]
 [connection signal="faceless_2_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_2_ended"]
