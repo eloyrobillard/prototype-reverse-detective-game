@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bf2xnriqgfa5i"]
+[gd_scene load_steps=35 format=3 uid="uid://bf2xnriqgfa5i"]
 
 [ext_resource type="Texture2D" uid="uid://dvn1w8dosdosj" path="res://assets/plaza.png" id="1_aup4n"]
 [ext_resource type="PackedScene" uid="uid://dsq2pn6a0o5d1" path="res://scenes/genya.tscn" id="2_576sq"]
@@ -13,9 +13,11 @@
 [ext_resource type="Script" uid="uid://dcfejpiwg7mew" path="res://scripts/dialogue/dialogue_cursor.gd" id="8_d7q6e"]
 [ext_resource type="Resource" uid="uid://crdqe6vwulr5s" path="res://npc_dialogue/alucard_1.tres" id="8_u0s1r"]
 [ext_resource type="Resource" uid="uid://c1d521oqnbwor" path="res://npc_dialogue/faceless_2.tres" id="9_ry7hw"]
+[ext_resource type="Resource" uid="uid://b8k0pmu1p3shj" path="res://npc_dialogue/angel_1.tres" id="10_8na2w"]
 [ext_resource type="PackedScene" uid="uid://co6s8pjm7kcws" path="res://scenes/mina.tscn" id="12_u0s1r"]
 [ext_resource type="Script" uid="uid://dxgcbkijn6dig" path="res://scripts/faceless_event_1_trigger.gd" id="13_d8w13"]
 [ext_resource type="PackedScene" uid="uid://1gv6h42jeeed" path="res://scenes/faceless_one.tscn" id="14_6duu6"]
+[ext_resource type="Script" uid="uid://bw30m6svqnhei" path="res://scripts/angle_1_trigger.gd" id="18_6lx30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_576sq"]
 size = Vector2(23, 20)
@@ -59,6 +61,8 @@ font_names = PackedStringArray("Igiari")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0s1r"]
 size = Vector2(20, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8na2w"]
 
 [node name="Plaza" type="StaticBody2D"]
 
@@ -124,7 +128,7 @@ scale = Vector2(1, 1)
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
 script = ExtResource("7_l5ok7")
-dialogues = Array[ExtResource("7_6vs6p")]([SubResource("Resource_6vs6p"), ExtResource("8_u0s1r"), ExtResource("8_72vqr"), ExtResource("9_ry7hw")])
+dialogues = Array[ExtResource("7_6vs6p")]([SubResource("Resource_6vs6p"), ExtResource("8_u0s1r"), ExtResource("8_72vqr"), ExtResource("9_ry7hw"), ExtResource("10_8na2w")])
 
 [node name="DialogueArea" type="Panel" parent="DialogueLayer"]
 anchors_preset = -1
@@ -215,6 +219,15 @@ shape = SubResource("RectangleShape2D_u0s1r")
 [node name="FacelessOne" parent="." instance=ExtResource("14_6duu6")]
 position = Vector2(307, 23)
 
+[node name="Angle1Trigger" type="Area2D" parent="."]
+position = Vector2(-108, 75)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("18_6lx30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Angle1Trigger"]
+shape = SubResource("RectangleShape2D_8na2w")
+
 [connection signal="alucard_dialogue_ended" from="DialogueLayer" to="Alucard" method="_on_dialogue_layer_alucard_dialogue_ended"]
 [connection signal="dialogue_ended" from="DialogueLayer" to="Genya" method="_on_dialogue_layer_dialogue_ended"]
 [connection signal="faceless_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_1_ended"]
@@ -223,3 +236,5 @@ position = Vector2(307, 23)
 [connection signal="body_entered" from="FacelessEvent1Trigger" to="FacelessEvent1Trigger" method="_on_body_entered"]
 [connection signal="start_faceless_event_1" from="FacelessEvent1Trigger" to="DialogueLayer" method="_on_faceless_event_1_trigger_start_faceless_event_1"]
 [connection signal="launch_dialogue_2" from="FacelessOne" to="DialogueLayer" method="_on_faceless_one_launch_dialogue_2"]
+[connection signal="body_entered" from="Angle1Trigger" to="Angle1Trigger" method="_on_body_entered"]
+[connection signal="start_angel_1" from="Angle1Trigger" to="DialogueLayer" method="_on_angle_1_trigger_start_angel_1"]
