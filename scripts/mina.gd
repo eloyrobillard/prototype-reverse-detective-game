@@ -15,14 +15,14 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_dialogue_layer_angel_1_ended() -> void:
+func _on_dialogue_layer_angel_1_ended(transformation_timing: float) -> void:
 	if tween:
 		tween.kill()
 
 	tween = create_tween()
-	tween.tween_property(halo, "rotation_degrees", 720, 3).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property(halo, "scale", halo.scale * 7.5, 3).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property(halo, "global_position:y", halo.global_position.y - 50, 3).set_ease(Tween.EASE_IN)
+	tween.tween_property(halo, "rotation_degrees", 720, transformation_timing).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(halo, "scale", halo.scale * 7.5, transformation_timing).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(halo, "global_position:y", halo.global_position.y - 50, transformation_timing).set_ease(Tween.EASE_IN)
 
 
 func _set_normal_halo() -> void:

@@ -57,3 +57,17 @@ func _on_dialogue_layer_faceless_2_ended() -> void:
 	await get_tree().create_timer(1).timeout
 	go_left = false
 	prostrated = true
+
+
+func _on_dialogue_layer_angel_1_ended(transformation_timing: float) -> void:
+	var albus = preload("res://scenes/albus.tscn")
+	var cl = CanvasLayer.new()
+	get_tree().root.add_child(cl)
+	var cr = ColorRect.new()
+	cr.color = Color(1, 1, 1, 0)
+	cr.set_anchors_preset(Control.PRESET_FULL_RECT)
+	cl.add_child(cr)
+
+	create_tween().tween_property(cr, "color:a", 1, transformation_timing)
+	await get_tree().create_timer(transformation_timing).timeout
+	cl.queue_free()
