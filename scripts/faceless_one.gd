@@ -60,14 +60,20 @@ func _on_dialogue_layer_faceless_2_ended() -> void:
 
 
 func _on_dialogue_layer_angel_1_ended(transformation_timing: float) -> void:
-	var albus = preload("res://scenes/albus.tscn")
+	var albus: CharacterBody2D = preload("res://scenes/albus.tscn").instantiate()
+
+	# White fade-in effect
 	var cl = CanvasLayer.new()
 	get_tree().root.add_child(cl)
 	var cr = ColorRect.new()
+	# Set alpha to zero to prepare for tween
 	cr.color = Color(1, 1, 1, 0)
 	cr.set_anchors_preset(Control.PRESET_FULL_RECT)
 	cl.add_child(cr)
 
-	create_tween().tween_property(cr, "color:a", 1, transformation_timing)
-	await get_tree().create_timer(transformation_timing).timeout
-	cl.queue_free()
+	var alpha_tween = create_tween()
+	alpha_tween.tween_property(cr, "color:a", 1, transformation_timing).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+	alpha_tween.tween_callback(func(): get_tree().root.add_child(albus))
+	alpha_tween.tween_callback(func(): albus.global_position = global_position)
+	alpha_tween.tween_callback(func(): cl.queue_free())
+	alpha_tween.tween_callback(func(): queue_free())

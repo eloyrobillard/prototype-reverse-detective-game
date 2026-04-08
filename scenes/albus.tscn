@@ -208,7 +208,7 @@ collision_layer = 2
 sprite_frames = SubResource("SpriteFrames_byrtc")
 animation = &"pre_jump"
 autoplay = "pre_jump"
-frame_progress = 0.8393384
+frame_progress = 0.16008554
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012562328]
 shape = SubResource("CapsuleShape2D_fha63")
