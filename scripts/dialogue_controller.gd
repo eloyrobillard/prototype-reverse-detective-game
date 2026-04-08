@@ -63,6 +63,7 @@ func set_dialogue(dialogue: Dialogue, callback: Callable) -> void:
 		max_lines = len(dialogue.lines)
 		_set_line(0)
 		set_process(true)
+		set_process_unhandled_input(true)
 		visible = true
 	else:
 		close_dialogue()
@@ -92,6 +93,7 @@ func close_dialogue() -> void:
 	dialogue_end_callback.call()
 	dialogue_cursor.set_active(false)
 	set_process(false)
+	set_process_unhandled_input(false)
 
 
 func _on_alucard_on_screen() -> void:
