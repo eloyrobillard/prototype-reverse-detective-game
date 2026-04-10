@@ -126,8 +126,9 @@ func _on_angle_1_trigger_start_angel_1() -> void:
 
 
 # Not a signal function
-func _trigger_start_albus_1() -> void:
+func _trigger_start_albus_1(cb: Callable) -> void:
 	var _on_albus_1_end = func() -> void:
 		albus_1_ended.emit()
+		cb.call()
 
 	set_dialogue(dialogues[5], _on_albus_1_end)
