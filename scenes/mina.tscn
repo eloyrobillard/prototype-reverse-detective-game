@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://co6s8pjm7kcws"]
+[gd_scene format=3 uid="uid://co6s8pjm7kcws"]
 
 [ext_resource type="Script" uid="uid://33t1m1ohoapi" path="res://scripts/mina.gd" id="1_aqpm8"]
 [ext_resource type="Texture2D" uid="uid://drj2fs1mhkawp" path="res://assets/Game Boy Advance - Castlevania_ Aria of Sorrow - Non-Playable Characters - Mina Hakuba.png" id="1_kw6yh"]
@@ -67,19 +67,19 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kw6yh"]
 radius = 7.0
 
-[node name="Mina" type="CharacterBody2D"]
+[node name="Mina" type="CharacterBody2D" unique_id=1227265332]
 collision_layer = 2
 script = ExtResource("1_aqpm8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1946031037]
 sprite_frames = SubResource("SpriteFrames_aqpm8")
 animation = &"standing"
 autoplay = "standing"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458574230]
 shape = SubResource("CapsuleShape2D_kw6yh")
 
-[node name="Halo" type="Sprite2D" parent="."]
+[node name="Halo" type="Sprite2D" parent="." unique_id=856706156]
 position = Vector2(1, -23)
 scale = Vector2(0.17213114, 0.17213115)
 texture = ExtResource("2_gbtd0")

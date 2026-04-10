@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_jm2bl"]
 [ext_resource type="Texture2D" uid="uid://jdrnvnq7hy1q" path="res://assets/character_icons/Albus - Character Portraits.png" id="2_krlyc"]
+[ext_resource type="Texture2D" uid="uid://bbrkrdu5il6qx" path="res://assets/character_icons/mina.png" id="3_4q30f"]
 
 [resource]
 script = ExtResource("1_jm2bl")
-speaker_names = Array[String](["\"Faceful\" One?"])
-speaker_icons = Array[Texture2D]([ExtResource("2_krlyc")])
-lines = Array[String](["WOOO! Oh yeah! Feels good to be back, baby!"])
-line_speaker_name_index = Array[int]([0])
-line_speaker_icon_index = Array[int]([0])
+speaker_names = Array[String](["\"Faceful\" One?", "Angel of Mercy"])
+speaker_icons = Array[Texture2D]([ExtResource("2_krlyc"), ExtResource("3_4q30f")])
+lines = Array[String](["WOOO! Oh yeah! Feels good to be back, baby!", "Welcome back, small one. Rejoice in the Heavenly Light caressing your face again.", "Yeah! WOOHOOOOOO!"])
+line_speaker_name_index = Array[int]([0, 1, 0])
+line_speaker_icon_index = Array[int]([0, 1, 0])
 metadata/_custom_type_script = "uid://5lyu4kom16io"
