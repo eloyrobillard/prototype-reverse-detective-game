@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkuxkjj4cjxfh"]
 
 [ext_resource type="Texture2D" uid="uid://fr1wlgggyw74" path="res://assets/DS _ DSi - Castlevania_ Order of Ecclesia - Non-Playable Characters - Albus.png" id="1_fha63"]
+[ext_resource type="Script" uid="uid://da0ppqs8ix7yu" path="res://scripts/albus.gd" id="1_xnf88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnf88"]
 atlas = ExtResource("1_fha63")
@@ -32,31 +33,19 @@ region = Rect2(413, 884, 59, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1o35"]
 atlas = ExtResource("1_fha63")
-region = Rect2(708, 884, 59, 68)
+region = Rect2(708, 880, 59, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncogo"]
 atlas = ExtResource("1_fha63")
-region = Rect2(767, 884, 59, 68)
+region = Rect2(767, 878, 59, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_de0ef"]
 atlas = ExtResource("1_fha63")
-region = Rect2(826, 884, 59, 68)
+region = Rect2(590, 883, 59, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtmrb"]
 atlas = ExtResource("1_fha63")
-region = Rect2(472, 884, 59, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnm1j"]
-atlas = ExtResource("1_fha63")
-region = Rect2(531, 884, 59, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbsx8"]
-atlas = ExtResource("1_fha63")
-region = Rect2(590, 884, 59, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6pmo"]
-atlas = ExtResource("1_fha63")
-region = Rect2(649, 884, 59, 68)
+region = Rect2(649, 882, 59, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fha63"]
 atlas = ExtResource("1_fha63")
@@ -130,28 +119,19 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y1o35")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ncogo")
-}, {
 "duration": 10.0,
-"texture": SubResource("AtlasTexture_de0ef")
+"texture": SubResource("AtlasTexture_ncogo")
 }],
-"loop": true,
+"loop": false,
 "name": &"landing",
 "speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_de0ef")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rtmrb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dnm1j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbsx8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q6pmo")
 }],
 "loop": true,
 "name": &"laughing",
@@ -170,7 +150,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_ncrhf")
 }],
-"loop": true,
+"loop": false,
 "name": &"pre_jump",
 "speed": 5.0
 }, {
@@ -203,12 +183,13 @@ height = 46.0
 
 [node name="Albus" type="CharacterBody2D" unique_id=129161835]
 collision_layer = 2
+script = ExtResource("1_xnf88")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1311208392]
 sprite_frames = SubResource("SpriteFrames_byrtc")
-animation = &"pre_jump"
+animation = &"laughing"
 autoplay = "pre_jump"
-frame_progress = 0.16008554
+frame_progress = 0.3399037
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012562328]
 shape = SubResource("CapsuleShape2D_fha63")

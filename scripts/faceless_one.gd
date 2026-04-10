@@ -74,6 +74,6 @@ func _on_dialogue_layer_angel_1_ended(transformation_timing: float) -> void:
 	var alpha_tween = create_tween()
 	alpha_tween.tween_property(cr, "color:a", 1, transformation_timing).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 	alpha_tween.tween_callback(func(): get_tree().root.add_child(albus))
-	alpha_tween.tween_callback(func(): albus.global_position = Vector2(global_position.x, global_position.y - 10))
+	alpha_tween.tween_callback(func(): albus.global_position = Vector2(global_position.x, global_position.y - 7))
 	alpha_tween.tween_callback(func(): cl.queue_free())
 	alpha_tween.tween_callback(func(): queue_free())

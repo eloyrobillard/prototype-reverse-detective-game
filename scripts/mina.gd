@@ -19,10 +19,15 @@ func _on_dialogue_layer_angel_1_ended(transformation_timing: float) -> void:
 	if tween:
 		tween.kill()
 
+	var original_scale = halo.scale
+	var original_y = halo.global_position.y
+
 	tween = create_tween()
 	tween.tween_property(halo, "rotation_degrees", 720, transformation_timing).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(halo, "scale", halo.scale * 7.5, transformation_timing).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(halo, "global_position:y", halo.global_position.y - 50, transformation_timing).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(func(): halo.scale = original_scale)
+	tween.tween_callback(func(): halo.global_position.y = original_y)
 
 
 func _set_normal_halo() -> void:
