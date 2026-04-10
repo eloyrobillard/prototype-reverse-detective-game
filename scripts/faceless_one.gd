@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@export var dialogue_layer: CanvasLayer
 
 signal launch_dialogue_2
 
@@ -75,5 +76,6 @@ func _on_dialogue_layer_angel_1_ended(transformation_timing: float) -> void:
 	alpha_tween.tween_property(cr, "color:a", 1, transformation_timing).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 	alpha_tween.tween_callback(func(): get_tree().root.add_child(albus))
 	alpha_tween.tween_callback(func(): albus.global_position = Vector2(global_position.x, global_position.y - 7))
+	alpha_tween.tween_callback(func(): albus.launch_dialogue_1.connect(dialogue_layer._trigger_start_albus_1))
 	alpha_tween.tween_callback(func(): cl.queue_free())
 	alpha_tween.tween_callback(func(): queue_free())

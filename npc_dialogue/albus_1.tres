@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://c3vqwph5yd3f3"]
+
+[ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_jm2bl"]
+[ext_resource type="Texture2D" uid="uid://jdrnvnq7hy1q" path="res://assets/character_icons/Albus - Character Portraits.png" id="2_krlyc"]
+
+[resource]
+script = ExtResource("1_jm2bl")
+speaker_names = Array[String](["\"Faceful\" One?"])
+speaker_icons = Array[Texture2D]([ExtResource("2_krlyc")])
+lines = Array[String](["WOOO! Oh yeah! Feels good to be back, baby!"])
+line_speaker_name_index = Array[int]([0])
+line_speaker_icon_index = Array[int]([0])
+metadata/_custom_type_script = "uid://5lyu4kom16io"

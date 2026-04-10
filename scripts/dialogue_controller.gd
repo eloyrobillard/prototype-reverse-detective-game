@@ -13,6 +13,7 @@ signal alucard_dialogue_ended
 signal faceless_1_ended
 signal faceless_2_ended
 signal angel_1_ended(transformation_timing: float)
+signal albus_1_ended
 
 var current_line = -1
 var max_lines = 0
@@ -122,3 +123,11 @@ func _on_angle_1_trigger_start_angel_1() -> void:
 		angel_1_ended.emit(3)
 
 	set_dialogue(dialogues[4], _on_angel_1_end)
+
+
+# Not a signal function
+func _trigger_start_albus_1() -> void:
+	var _on_albus_1_end = func() -> void:
+		albus_1_ended.emit()
+
+	set_dialogue(dialogues[5], _on_albus_1_end)
