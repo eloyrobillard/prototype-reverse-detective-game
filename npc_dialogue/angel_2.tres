@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dxl1r3uvtn22n"]
+
+[ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_kmsmj"]
+[ext_resource type="Texture2D" uid="uid://bbrkrdu5il6qx" path="res://assets/character_icons/mina.png" id="2_l2jjl"]
+
+[resource]
+script = ExtResource("1_kmsmj")
+speaker_names = Array[String](["Angel of Mercy"])
+speaker_icons = Array[Texture2D]([ExtResource("2_l2jjl")])
+lines = Array[String](["Farewell, sweet soul. And now, let us go deeper into the Subterranean Realm, and shine His Light in the shadows."])
+line_speaker_name_index = Array[int]([0])
+line_speaker_icon_index = Array[int]([0])
+metadata/_custom_type_script = "uid://5lyu4kom16io"

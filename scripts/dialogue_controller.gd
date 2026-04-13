@@ -14,6 +14,7 @@ signal faceless_1_ended
 signal faceless_2_ended
 signal angel_1_ended(transformation_timing: float)
 signal albus_1_ended
+signal angel_2_ended
 
 var current_line = -1
 var max_lines = 0
@@ -131,6 +132,15 @@ func _on_angle_1_trigger_start_angel_1() -> void:
 func _trigger_start_albus_1(cb: Callable) -> void:
 	var _on_albus_1_end = func() -> void:
 		albus_1_ended.emit()
-		cb.call()
+		cb.call(0.5)
+		await get_tree().create_timer(1.0).timeout
+		_trigger_start_angel_2()
 
 	set_dialogue(dialogues[5], _on_albus_1_end)
+
+
+func _trigger_start_angel_2() -> void:
+	var _on_angel_2_end = func() -> void:
+		angel_2_ended.emit()
+
+	set_dialogue(dialogues[6], _on_angel_2_end)

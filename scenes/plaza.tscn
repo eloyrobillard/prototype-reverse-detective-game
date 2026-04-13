@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://c1d521oqnbwor" path="res://npc_dialogue/faceless_2.tres" id="9_ry7hw"]
 [ext_resource type="Resource" uid="uid://b8k0pmu1p3shj" path="res://npc_dialogue/angel_1.tres" id="10_8na2w"]
 [ext_resource type="Resource" uid="uid://c3vqwph5yd3f3" path="res://npc_dialogue/albus_1.tres" id="11_drffl"]
+[ext_resource type="Resource" uid="uid://dxl1r3uvtn22n" path="res://npc_dialogue/angel_2.tres" id="12_g1rmw"]
 [ext_resource type="PackedScene" uid="uid://co6s8pjm7kcws" path="res://scenes/mina.tscn" id="12_u0s1r"]
 [ext_resource type="Script" uid="uid://dxgcbkijn6dig" path="res://scripts/faceless_event_1_trigger.gd" id="13_d8w13"]
 [ext_resource type="PackedScene" uid="uid://1gv6h42jeeed" path="res://scenes/faceless_one.tscn" id="14_6duu6"]
@@ -129,7 +130,7 @@ scale = Vector2(1, 1)
 
 [node name="DialogueLayer" type="CanvasLayer" parent="." unique_id=1157859090]
 script = ExtResource("7_l5ok7")
-dialogues = Array[ExtResource("7_6vs6p")]([SubResource("Resource_6vs6p"), ExtResource("8_u0s1r"), ExtResource("8_72vqr"), ExtResource("9_ry7hw"), ExtResource("10_8na2w"), ExtResource("11_drffl")])
+dialogues = Array[ExtResource("7_6vs6p")]([SubResource("Resource_6vs6p"), ExtResource("8_u0s1r"), ExtResource("8_72vqr"), ExtResource("9_ry7hw"), ExtResource("10_8na2w"), ExtResource("11_drffl"), ExtResource("12_g1rmw")])
 
 [node name="DialogueArea" type="Panel" parent="DialogueLayer" unique_id=1859315781]
 anchors_preset = -1
@@ -233,6 +234,7 @@ shape = SubResource("RectangleShape2D_8na2w")
 [connection signal="alucard_dialogue_ended" from="DialogueLayer" to="Alucard" method="_on_dialogue_layer_alucard_dialogue_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="Mina" method="_on_dialogue_layer_angel_1_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_angel_1_ended"]
+[connection signal="angel_2_ended" from="DialogueLayer" to="Mina" method="_on_dialogue_layer_angel_2_ended"]
 [connection signal="dialogue_ended" from="DialogueLayer" to="Genya" method="_on_dialogue_layer_dialogue_ended"]
 [connection signal="faceless_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_1_ended"]
 [connection signal="faceless_2_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_2_ended"]

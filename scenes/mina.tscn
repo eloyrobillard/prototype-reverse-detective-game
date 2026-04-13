@@ -73,8 +73,9 @@ script = ExtResource("1_aqpm8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1946031037]
 sprite_frames = SubResource("SpriteFrames_aqpm8")
-animation = &"standing"
+animation = &"moon_walk"
 autoplay = "standing"
+frame_progress = 0.91183
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458574230]
 shape = SubResource("CapsuleShape2D_kw6yh")

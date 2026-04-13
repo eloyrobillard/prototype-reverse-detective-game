@@ -32,9 +32,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_dialogue_1_ended() -> void:
+func _on_dialogue_1_ended(timing: float) -> void:
+	# allow Albus to literally jump through the roof
 	collision_shape_2d.disabled = true
 	animated_sprite_2d.play("spin_jump")
 	velocity.y = 2 * JUMP_VELOCITY
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(timing).timeout
 	queue_free()
