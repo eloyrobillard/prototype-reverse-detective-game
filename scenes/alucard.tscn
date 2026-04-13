@@ -1,11 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://dii2gtu0ptvg8"]
+[gd_scene format=3 uid="uid://dii2gtu0ptvg8"]
 
 [ext_resource type="Script" uid="uid://e8qvdww2cm6e" path="res://scripts/alucard.gd" id="1_g5e3i"]
 [ext_resource type="Texture2D" uid="uid://bvu8th12s1pis" path="res://assets/PlayStation - Castlevania_ Symphony of the Night - Playable Characters - Alucard.png" id="1_x75ur"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpp6m"]
+atlas = ExtResource("1_x75ur")
+region = Rect2(709, 282, 33, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhvrc"]
+atlas = ExtResource("1_x75ur")
+region = Rect2(742, 282, 33, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsymf"]
+atlas = ExtResource("1_x75ur")
+region = Rect2(775, 282, 33, 55)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3tob"]
 atlas = ExtResource("1_x75ur")
 region = Rect2(667, 285, 40, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww74h"]
+atlas = ExtResource("1_x75ur")
+region = Rect2(575, 1256, 33, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyqy4"]
+atlas = ExtResource("1_x75ur")
+region = Rect2(536, 1256, 33, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5e3i"]
 atlas = ExtResource("1_x75ur")
@@ -27,10 +47,38 @@ region = Rect2(743, 1250, 45, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jpp6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhvrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsymf")
+}],
+"loop": false,
+"name": &"kneel-to-stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_j3tob")
 }],
 "loop": false,
 "name": &"kneeling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ww74h")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_gyqy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww74h")
+}],
+"loop": false,
+"name": &"sit-down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -54,17 +102,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x75ur"]
 size = Vector2(24.538462, 40)
 
-[node name="Alucard" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5e3i"]
+size = Vector2(24.358974, 25.641027)
+
+[node name="Alucard" type="CharacterBody2D" unique_id=642540810]
 scale = Vector2(0.78, 0.78)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_g5e3i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=73932271]
 sprite_frames = SubResource("SpriteFrames_j3tob")
-animation = &"kneeling"
-frame_progress = 1.0
+animation = &"sitting"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564852445]
 position = Vector2(-0.73076916, 5)
 shape = SubResource("RectangleShape2D_x75ur")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=560649982]
+position = Vector2(-0.64102566, -2.5641026)
+shape = SubResource("RectangleShape2D_g5e3i")
+disabled = true

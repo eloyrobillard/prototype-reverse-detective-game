@@ -98,7 +98,7 @@ func close_dialogue() -> void:
 	set_process_unhandled_input(false)
 
 
-func _on_alucard_on_screen() -> void:
+func _on_alucard_alucard_1() -> void:
 	var _on_alucard_dialogue_end = func() -> void:
 		alucard_dialogue_ended.emit()
 

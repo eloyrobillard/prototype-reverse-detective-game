@@ -73,7 +73,7 @@ scale = Vector2(1.282, 1.282)
 texture = ExtResource("1_aup4n")
 
 [node name="Genya" parent="." unique_id=1280385687 instance=ExtResource("2_576sq")]
-position = Vector2(307, 19)
+position = Vector2(-290, 19)
 scale = Vector2(1, 1)
 collision_layer = 4
 collision_mask = 1
@@ -231,6 +231,7 @@ script = ExtResource("18_6lx30")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Angle1Trigger" unique_id=813453547]
 shape = SubResource("RectangleShape2D_8na2w")
 
+[connection signal="alucard_1" from="Alucard" to="DialogueLayer" method="_on_alucard_alucard_1"]
 [connection signal="alucard_dialogue_ended" from="DialogueLayer" to="Alucard" method="_on_dialogue_layer_alucard_dialogue_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="Mina" method="_on_dialogue_layer_angel_1_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_angel_1_ended"]
@@ -239,6 +240,7 @@ shape = SubResource("RectangleShape2D_8na2w")
 [connection signal="faceless_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_1_ended"]
 [connection signal="faceless_2_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_2_ended"]
 [connection signal="running_dialogue" from="DialogueLayer" to="Genya" method="_on_dialogue_layer_running_dialogue"]
+[connection signal="left_scene" from="Mina" to="Alucard" method="_on_mina_left_scene"]
 [connection signal="body_entered" from="FacelessEvent1Trigger" to="FacelessEvent1Trigger" method="_on_body_entered"]
 [connection signal="start_faceless_event_1" from="FacelessEvent1Trigger" to="DialogueLayer" method="_on_faceless_event_1_trigger_start_faceless_event_1"]
 [connection signal="launch_dialogue_2" from="FacelessOne" to="DialogueLayer" method="_on_faceless_one_launch_dialogue_2"]
