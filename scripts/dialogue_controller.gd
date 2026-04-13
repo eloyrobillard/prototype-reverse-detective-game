@@ -107,6 +107,7 @@ func _on_alucard_on_screen() -> void:
 func _on_faceless_event_1_trigger_start_faceless_event_1() -> void:
 	var _on_faceless_1_end = func() -> void:
 		faceless_1_ended.emit()
+		running_dialogue.emit()
 
 	set_dialogue(dialogues[2], _on_faceless_1_end)
 
@@ -121,6 +122,7 @@ func _on_faceless_one_launch_dialogue_2() -> void:
 func _on_angle_1_trigger_start_angel_1() -> void:
 	var _on_angel_1_end = func() -> void:
 		angel_1_ended.emit(3)
+		running_dialogue.emit()
 
 	set_dialogue(dialogues[4], _on_angel_1_end)
 
