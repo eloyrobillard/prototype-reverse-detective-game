@@ -42,3 +42,7 @@ func _on_dialogue_layer_running_dialogue() -> void:
 
 func _on_dialogue_layer_dialogue_ended() -> void:
 	set_physics_process(true)
+
+
+func _on_alucard_left_scene() -> void:
+	set_physics_process(true)

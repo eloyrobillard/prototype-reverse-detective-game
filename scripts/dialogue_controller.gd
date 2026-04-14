@@ -101,6 +101,7 @@ func close_dialogue() -> void:
 func _on_alucard_alucard_1() -> void:
 	var _on_alucard_dialogue_end = func() -> void:
 		alucard_dialogue_ended.emit()
+		running_dialogue.emit()
 
 	set_dialogue(dialogues[1], _on_alucard_dialogue_end)
 

@@ -105,6 +105,9 @@ size = Vector2(24.538462, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5e3i"]
 size = Vector2(24.358974, 25.641027)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixxrv"]
+size = Vector2(24.358974, 52.564102)
+
 [node name="Alucard" type="CharacterBody2D" unique_id=642540810]
 scale = Vector2(0.78, 0.78)
 collision_layer = 2
@@ -122,4 +125,9 @@ shape = SubResource("RectangleShape2D_x75ur")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=560649982]
 position = Vector2(-0.64102566, -2.5641026)
 shape = SubResource("RectangleShape2D_g5e3i")
+disabled = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1721189579]
+position = Vector2(-0.6410255, 10.897436)
+shape = SubResource("RectangleShape2D_ixxrv")
 disabled = true
