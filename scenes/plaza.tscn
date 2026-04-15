@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://dxgcbkijn6dig" path="res://scripts/faceless_event_1_trigger.gd" id="13_d8w13"]
 [ext_resource type="PackedScene" uid="uid://1gv6h42jeeed" path="res://scenes/faceless_one.tscn" id="14_6duu6"]
 [ext_resource type="Script" uid="uid://bw30m6svqnhei" path="res://scripts/angle_1_trigger.gd" id="18_6lx30"]
+[ext_resource type="Script" uid="uid://djfe747usm0jp" path="res://scripts/exit_trigger.gd" id="21_yuvdm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_576sq"]
 size = Vector2(23, 20)
@@ -65,6 +66,9 @@ font_names = PackedStringArray("Igiari")
 size = Vector2(20, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8na2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1rmw"]
+size = Vector2(25, 20)
 
 [node name="Plaza" type="StaticBody2D" unique_id=1072690451]
 
@@ -231,8 +235,19 @@ script = ExtResource("18_6lx30")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Angle1Trigger" unique_id=813453547]
 shape = SubResource("RectangleShape2D_8na2w")
 
+[node name="ExitTrigger" type="Area2D" parent="." unique_id=1109273298]
+collision_mask = 4
+monitorable = false
+script = ExtResource("21_yuvdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTrigger" unique_id=496123139]
+position = Vector2(0, 74)
+shape = SubResource("RectangleShape2D_g1rmw")
+disabled = true
+
 [connection signal="alucard_1" from="Alucard" to="DialogueLayer" method="_on_alucard_alucard_1"]
 [connection signal="left_scene" from="Alucard" to="Genya" method="_on_alucard_left_scene"]
+[connection signal="left_scene" from="Alucard" to="ExitTrigger" method="_on_alucard_left_scene"]
 [connection signal="alucard_dialogue_ended" from="DialogueLayer" to="Alucard" method="_on_dialogue_layer_alucard_dialogue_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="Mina" method="_on_dialogue_layer_angel_1_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_angel_1_ended"]
@@ -247,3 +262,5 @@ shape = SubResource("RectangleShape2D_8na2w")
 [connection signal="launch_dialogue_2" from="FacelessOne" to="DialogueLayer" method="_on_faceless_one_launch_dialogue_2"]
 [connection signal="body_entered" from="Angle1Trigger" to="Angle1Trigger" method="_on_body_entered"]
 [connection signal="start_angel_1" from="Angle1Trigger" to="DialogueLayer" method="_on_angle_1_trigger_start_angel_1"]
+[connection signal="body_entered" from="ExitTrigger" to="ExitTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="ExitTrigger" to="ExitTrigger" method="_on_body_exited"]

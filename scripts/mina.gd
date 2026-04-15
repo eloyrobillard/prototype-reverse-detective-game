@@ -8,6 +8,7 @@ const SPEED = 100.0
 signal left_scene
 
 var tween: Tween
+
 var move: bool
 var move_to_x: float
 var move_cb: Callable
