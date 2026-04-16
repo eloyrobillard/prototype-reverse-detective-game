@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var collision_shape_2d_2: CollisionShape2D = $CollisionShape2D2
+@onready var seated_collision_shape: CollisionShape2D = $CollisionShape2D2
 @onready var collision_shape_2d_3: CollisionShape2D = $CollisionShape2D3
 @onready var static_mud_man: StaticBody2D = $"../StaticMudMan"
 
@@ -64,11 +64,11 @@ func _on_mina_left_scene() -> void:
 	velocity.x = -50
 	jump_backwards = true
 	collision_shape_2d.disabled = true
-	collision_shape_2d_2.disabled = false
+	seated_collision_shape.disabled = false
 
 
 func _on_dialogue_layer_alucard_dialogue_ended() -> void:
-	collision_shape_2d_2.disabled = true
+	seated_collision_shape.disabled = true
 	collision_shape_2d_3.disabled = false
 	set_collision_mask_value(2, false)
 	static_mud_man.reparent(self)

@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
+@export var looking_right: bool
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -220.0
+
+
+func _ready() -> void:
+	animated_sprite_2d.flip_h = looking_right
 
 
 func _physics_process(delta: float) -> void:

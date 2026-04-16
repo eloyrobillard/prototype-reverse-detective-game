@@ -1,3 +1,4 @@
+class_name DialogueMachine
 extends CanvasLayer
 
 @onready var dialogue_cursor: TextureRect = $"DialogueArea/DialogueCursor"
@@ -9,12 +10,6 @@ extends CanvasLayer
 
 signal running_dialogue
 signal dialogue_ended
-signal alucard_dialogue_ended
-signal faceless_1_ended
-signal faceless_2_ended
-signal angel_1_ended(transformation_timing: float)
-signal albus_1_ended
-signal angel_2_ended
 
 var current_line = -1
 var max_lines = 0
@@ -27,9 +22,9 @@ var dialogue_end_callback: Callable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	visible = false
-	default_dialogue = dialogues[0]
-	current_dialogue = default_dialogue
+	hide()
+	set_process(false)
+	set_process_unhandled_input(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,18 +50,18 @@ func _unhandled_input(event: InputEvent) -> void:
 					close_dialogue()
 
 
-func set_dialogue(dialogue: Dialogue, callback: Callable) -> void:
+func set_dialogue(dialogue_idx: int, callback: Callable) -> void:
 	dialogue_text.text = ""
-	current_dialogue = dialogue
+	current_dialogue = dialogues[dialogue_idx]
 	dialogue_end_callback = callback
 
-	if len(dialogue.lines) > 0:
+	if len(current_dialogue.lines) > 0:
 		running_dialogue.emit()
-		max_lines = len(dialogue.lines)
+		max_lines = len(current_dialogue.lines)
 		_set_line(0)
 		set_process(true)
 		set_process_unhandled_input(true)
-		visible = true
+		show()
 	else:
 		close_dialogue()
 
@@ -88,7 +83,7 @@ func _set_line(line_idx: int) -> void:
 func close_dialogue() -> void:
 	visible_chars = 0
 	dialogue_text.visible_characters = 0
-	visible = false
+	hide()
 	current_dialogue = default_dialogue
 	running_dialogue.emit()
 	dialogue_ended.emit()
@@ -96,52 +91,3 @@ func close_dialogue() -> void:
 	dialogue_cursor.set_active(false)
 	set_process(false)
 	set_process_unhandled_input(false)
-
-
-func _on_alucard_alucard_1() -> void:
-	var _on_alucard_dialogue_end = func() -> void:
-		alucard_dialogue_ended.emit()
-		running_dialogue.emit()
-
-	set_dialogue(dialogues[0], _on_alucard_dialogue_end)
-
-
-func _on_faceless_event_1_trigger_start_faceless_event_1() -> void:
-	var _on_faceless_1_end = func() -> void:
-		faceless_1_ended.emit()
-		running_dialogue.emit()
-
-	set_dialogue(dialogues[1], _on_faceless_1_end)
-
-
-func _on_faceless_one_launch_dialogue_2() -> void:
-	var _on_faceless_2_end = func() -> void:
-		faceless_2_ended.emit()
-
-	set_dialogue(dialogues[2], _on_faceless_2_end)
-
-
-func _on_angle_1_trigger_start_angel_1() -> void:
-	var _on_angel_1_end = func() -> void:
-		angel_1_ended.emit(3)
-		running_dialogue.emit()
-
-	set_dialogue(dialogues[3], _on_angel_1_end)
-
-
-# Not a signal function
-func _trigger_start_albus_1(cb: Callable) -> void:
-	var _on_albus_1_end = func() -> void:
-		albus_1_ended.emit()
-		cb.call(0.5)
-		await get_tree().create_timer(1.0).timeout
-		_trigger_start_angel_2()
-
-	set_dialogue(dialogues[4], _on_albus_1_end)
-
-
-func _trigger_start_angel_2() -> void:
-	var _on_angel_2_end = func() -> void:
-		angel_2_ended.emit()
-
-	set_dialogue(dialogues[5], _on_angel_2_end)

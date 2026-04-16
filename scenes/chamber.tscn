@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://b25qq2pd47rb"]
+
+[ext_resource type="Script" uid="uid://bwa0s3citfqno" path="res://scripts/chamber.gd" id="1_72ii0"]
+[ext_resource type="Texture2D" uid="uid://bocewoyyianmh" path="res://assets/Game Boy Advance - Castlevania_ Aria of Sorrow - Backgrounds - Top Floor.png" id="1_ecgjq"]
+[ext_resource type="PackedScene" uid="uid://dsq2pn6a0o5d1" path="res://scenes/genya.tscn" id="2_ek1h7"]
+[ext_resource type="Texture2D" uid="uid://drj2fs1mhkawp" path="res://assets/Game Boy Advance - Castlevania_ Aria of Sorrow - Non-Playable Characters - Mina Hakuba.png" id="3_rst5n"]
+[ext_resource type="PackedScene" uid="uid://bkuxkjj4cjxfh" path="res://scenes/albus.tscn" id="4_it6qv"]
+[ext_resource type="PackedScene" uid="uid://6ja46rwum77i" path="res://scenes/static_mud_man.tscn" id="5_doea2"]
+[ext_resource type="Script" uid="uid://dqhulmyug3y7k" path="res://scripts/albus_2.gd" id="5_ovca5"]
+[ext_resource type="PackedScene" uid="uid://dii2gtu0ptvg8" path="res://scenes/alucard.tscn" id="6_hn43x"]
+[ext_resource type="Script" uid="uid://cay02ka1iko7u" path="res://scripts/alucard_2.gd" id="8_wsb82"]
+[ext_resource type="Script" uid="uid://vky610quy50t" path="res://scripts/dialogues_chamber.gd" id="9_l1v07"]
+[ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="10_4p6b2"]
+[ext_resource type="Resource" uid="uid://duypar1b8nw1k" path="res://npc_dialogue/chamber_1.tres" id="11_u75jq"]
+[ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="17_u6s8d"]
+[ext_resource type="Texture2D" uid="uid://64ocnfmbi78i" path="res://assets/character_icons/dialogue_cursor.png" id="18_8vi0b"]
+[ext_resource type="Script" uid="uid://dcfejpiwg7mew" path="res://scripts/dialogue/dialogue_cursor.gd" id="19_wyrk2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ecgjq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ek1h7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rst5n"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_it6qv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g05i"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="SystemFont" id="SystemFont_sf0hk"]
+font_names = PackedStringArray("Igiari")
+
+[sub_resource type="SystemFont" id="SystemFont_0ljab"]
+font_names = PackedStringArray("Igiari")
+
+[node name="Chamber" type="StaticBody2D" unique_id=950068505]
+script = ExtResource("1_72ii0")
+
+[node name="ChamberSprite" type="Sprite2D" parent="." unique_id=612683260]
+texture = ExtResource("1_ecgjq")
+
+[node name="Floor" type="CollisionShape2D" parent="." unique_id=936245992]
+position = Vector2(1, 66)
+scale = Vector2(1.205, 1)
+shape = SubResource("WorldBoundaryShape2D_ecgjq")
+
+[node name="Ceiling" type="CollisionShape2D" parent="." unique_id=1474552283]
+position = Vector2(1, -73)
+scale = Vector2(1.205, -1)
+shape = SubResource("WorldBoundaryShape2D_ek1h7")
+
+[node name="Right" type="CollisionShape2D" parent="." unique_id=248203849]
+position = Vector2(120, 5)
+rotation = -1.5707964
+scale = Vector2(0.43, 1)
+shape = SubResource("WorldBoundaryShape2D_rst5n")
+
+[node name="Left" type="CollisionShape2D" parent="." unique_id=1937039114]
+position = Vector2(-119, 6)
+rotation = 1.5707964
+scale = Vector2(0.415, 1)
+shape = SubResource("WorldBoundaryShape2D_it6qv")
+
+[node name="LeftStairs" type="CollisionPolygon2D" parent="." unique_id=2016241201]
+position = Vector2(-76, 65)
+polygon = PackedVector2Array(-29, -17, -29, -33, -45, -33, -29, -1, 0, 0)
+
+[node name="RightStairs" type="CollisionPolygon2D" parent="." unique_id=2084178168]
+position = Vector2(74, 65)
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(-29, -17, -29, -33, -45, -33, -29, -1, 0, 0)
+
+[node name="Genya" parent="." unique_id=2060122170 instance=ExtResource("2_ek1h7")]
+position = Vector2(-109, 13)
+looking_right = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=589070905]
+zoom = Vector2(6.66, 6.66)
+limit_left = -120
+limit_top = -80
+limit_right = 120
+limit_bottom = 80
+
+[node name="MinaCorpse" type="Sprite2D" parent="." unique_id=1205458527]
+position = Vector2(8, 44)
+texture = ExtResource("3_rst5n")
+region_enabled = true
+region_rect = Rect2(32, 48, 40, 8)
+
+[node name="Albus" parent="." unique_id=129161835 instance=ExtResource("4_it6qv")]
+position = Vector2(40, 46)
+scale = Vector2(0.842, 0.842)
+script = ExtResource("5_ovca5")
+
+[node name="StaticMudMan" parent="." unique_id=791297083 instance=ExtResource("5_doea2")]
+position = Vector2(-63, 53)
+
+[node name="Alucard" parent="." unique_id=642540810 instance=ExtResource("6_hn43x")]
+position = Vector2(-63, 35)
+script = ExtResource("8_wsb82")
+
+[node name="DialogueMachine" type="CanvasLayer" parent="." unique_id=1023999133]
+visible = false
+script = ExtResource("9_l1v07")
+dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq")])
+
+[node name="DialogueArea" type="Panel" parent="DialogueMachine" unique_id=1310490258]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.6
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8g05i")
+
+[node name="SpeakerIcon" type="TextureRect" parent="DialogueMachine/DialogueArea" unique_id=699715505]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -711.60486
+offset_top = -524.0
+grow_horizontal = 0
+texture = ExtResource("17_u6s8d")
+stretch_mode = 5
+
+[node name="SpeakerName" type="Label" parent="DialogueMachine/DialogueArea" unique_id=470955044]
+layout_mode = 1
+offset_left = 218.0
+offset_top = 36.0
+offset_right = 482.0
+offset_bottom = 95.0
+theme_override_fonts/font = SubResource("SystemFont_sf0hk")
+theme_override_font_sizes/font_size = 54
+text = "Genya"
+
+[node name="DialogueText" type="Label" parent="DialogueMachine/DialogueArea" unique_id=927062487]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 218.0
+offset_top = 113.0
+offset_right = 1497.0
+offset_bottom = 338.0
+theme_override_fonts/font = SubResource("SystemFont_0ljab")
+theme_override_font_sizes/font_size = 54
+autowrap_mode = 2
+
+[node name="DialogueCursor" type="TextureRect" parent="DialogueMachine/DialogueArea" unique_id=1387570679]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -93.0
+offset_right = -55.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("18_8vi0b")
+stretch_mode = 5
+script = ExtResource("19_wyrk2")
+
+[connection signal="chamber_1" from="." to="DialogueMachine" method="_on_chamber_chamber_1"]
