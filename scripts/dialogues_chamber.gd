@@ -2,6 +2,7 @@ extends DialogueMachine
 
 signal chamber_1_ended
 signal chamber_2_started
+signal chamber_2_ended
 
 
 func _on_chamber_chamber_1() -> void:
@@ -16,7 +17,7 @@ func _on_chamber_chamber_1() -> void:
 
 func _on_chamber_2() -> void:
 	var _on_chamber_2_end = func():
-		pass
+		chamber_2_ended.emit()
 
 	set_dialogue(1, _on_chamber_2_end)
 	chamber_2_started.emit()

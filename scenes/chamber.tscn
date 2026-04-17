@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkuxkjj4cjxfh" path="res://scenes/albus.tscn" id="4_it6qv"]
 [ext_resource type="PackedScene" uid="uid://6ja46rwum77i" path="res://scenes/static_mud_man.tscn" id="5_doea2"]
 [ext_resource type="Script" uid="uid://dqhulmyug3y7k" path="res://scripts/albus_2.gd" id="5_ovca5"]
+[ext_resource type="Script" uid="uid://bbl1ycpdkooib" path="res://scripts/genya_2.gd" id="5_xch0b"]
 [ext_resource type="PackedScene" uid="uid://dii2gtu0ptvg8" path="res://scenes/alucard.tscn" id="6_hn43x"]
 [ext_resource type="Script" uid="uid://cay02ka1iko7u" path="res://scripts/alucard_2.gd" id="8_wsb82"]
 [ext_resource type="Script" uid="uid://vky610quy50t" path="res://scripts/dialogues_chamber.gd" id="9_l1v07"]
@@ -71,8 +72,16 @@ position = Vector2(74, 65)
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-29, -17, -29, -33, -45, -33, -29, -1, 0, 0)
 
+[node name="MinaCorpse" type="Sprite2D" parent="." unique_id=1205458527]
+position = Vector2(8, 44)
+texture = ExtResource("3_rst5n")
+region_enabled = true
+region_rect = Rect2(32, 48, 40, 8)
+
 [node name="Genya" parent="." unique_id=2060122170 instance=ExtResource("2_ek1h7")]
 position = Vector2(-109, 13)
+collision_layer = 4
+script = ExtResource("5_xch0b")
 looking_right = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=589070905]
@@ -81,12 +90,6 @@ limit_left = -120
 limit_top = -80
 limit_right = 120
 limit_bottom = 80
-
-[node name="MinaCorpse" type="Sprite2D" parent="." unique_id=1205458527]
-position = Vector2(8, 44)
-texture = ExtResource("3_rst5n")
-region_enabled = true
-region_rect = Rect2(32, 48, 40, 8)
 
 [node name="Albus" parent="." unique_id=129161835 instance=ExtResource("4_it6qv")]
 position = Vector2(40, 46)
@@ -166,4 +169,7 @@ script = ExtResource("19_wyrk2")
 
 [connection signal="chamber_1" from="." to="DialogueMachine" method="_on_chamber_chamber_1"]
 [connection signal="chamber_1_ended" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_1_ended"]
+[connection signal="chamber_2_ended" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_chamber_2_ended"]
 [connection signal="chamber_2_started" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_2_started"]
+[connection signal="dialogue_ended" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_dialogue_ended"]
+[connection signal="running_dialogue" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_running_dialogue"]
