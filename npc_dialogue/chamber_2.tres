@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bts7baxvrre8w"]
+
+[ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_e07eo"]
+[ext_resource type="Texture2D" uid="uid://d361in5firy3y" path="res://assets/character_icons/Albus 2 - Character Portraits.png" id="2_xw7kr"]
+[ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="3_37rie"]
+[ext_resource type="Texture2D" uid="uid://c6bj5f8o85qxf" path="res://assets/character_icons/alucard.png" id="4_huves"]
+[ext_resource type="Texture2D" uid="uid://byfe4p55k6vj1" path="res://assets/character_icons/Albus 3 - Character Portraits.png" id="5_wetae"]
+
+[resource]
+script = ExtResource("1_e07eo")
+speaker_names = Array[String](["Albus", "Genya", "Alucard"])
+speaker_icons = Array[Texture2D]([ExtResource("2_xw7kr"), ExtResource("3_37rie"), ExtResource("4_huves"), ExtResource("5_wetae")])
+lines = Array[String](["...", "I messed up.", "Yes.", "I killed an angel.", "Yes, you killed an incarnation of the soul of God Himself. The very same crime He cast Lucifer into Hell for.", "I didn't mean to, it just sort of happened. Who knew angels could be killed so easily?", "No one, because no one would be stupid enough to try. On the positive side since you already reside in Hell, things cannot get much worse I suppose.", "Hahahaha..."])
+line_speaker_name_index = Array[int]([0, 0, 1, 0, 2, 0, 1, 0])
+line_speaker_icon_index = Array[int]([0, 0, 1, 0, 2, 0, 1, 3])
+metadata/_custom_type_script = "uid://5lyu4kom16io"

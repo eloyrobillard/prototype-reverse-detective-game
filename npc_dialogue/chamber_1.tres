@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_t7fxm"]
 [ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="2_mw0cd"]
 [ext_resource type="Texture2D" uid="uid://c6bj5f8o85qxf" path="res://assets/character_icons/alucard.png" id="3_fyq28"]
+[ext_resource type="Texture2D" uid="uid://jdrnvnq7hy1q" path="res://assets/character_icons/Albus - Character Portraits.png" id="4_f2kbm"]
 
 [resource]
 script = ExtResource("1_t7fxm")
-speaker_names = Array[String](["Genya", "Alucard"])
-speaker_icons = Array[Texture2D]([ExtResource("2_mw0cd"), ExtResource("3_fyq28")])
-lines = Array[String](["Bugger.", "Indeed."])
-line_speaker_name_index = Array[int]([0, 1])
-line_speaker_icon_index = Array[int]([0, 1])
+speaker_names = Array[String](["Genya", "Alucard", "Albus"])
+speaker_icons = Array[Texture2D]([ExtResource("2_mw0cd"), ExtResource("3_fyq28"), ExtResource("4_f2kbm")])
+lines = Array[String](["Bugger.", "Indeed.", "GWAHAHAHAHA!"])
+line_speaker_name_index = Array[int]([0, 1, 2])
+line_speaker_icon_index = Array[int]([0, 1, 2])
 metadata/_custom_type_script = "uid://5lyu4kom16io"

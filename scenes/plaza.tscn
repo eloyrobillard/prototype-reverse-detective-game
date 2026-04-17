@@ -77,6 +77,7 @@ position = Vector2(-290, 19)
 scale = Vector2(1, 1)
 collision_layer = 4
 collision_mask = 1
+can_move = true
 
 [node name="Camera2D" type="Camera2D" parent="Genya" unique_id=1666236019]
 position = Vector2(1, -42)

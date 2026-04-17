@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://vky610quy50t" path="res://scripts/dialogues_chamber.gd" id="9_l1v07"]
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="10_4p6b2"]
 [ext_resource type="Resource" uid="uid://duypar1b8nw1k" path="res://npc_dialogue/chamber_1.tres" id="11_u75jq"]
+[ext_resource type="Resource" uid="uid://bts7baxvrre8w" path="res://npc_dialogue/chamber_2.tres" id="13_a6pah"]
 [ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="17_u6s8d"]
 [ext_resource type="Texture2D" uid="uid://64ocnfmbi78i" path="res://assets/character_icons/dialogue_cursor.png" id="18_8vi0b"]
 [ext_resource type="Script" uid="uid://dcfejpiwg7mew" path="res://scripts/dialogue/dialogue_cursor.gd" id="19_wyrk2"]
@@ -102,7 +103,7 @@ script = ExtResource("8_wsb82")
 [node name="DialogueMachine" type="CanvasLayer" parent="." unique_id=1023999133]
 visible = false
 script = ExtResource("9_l1v07")
-dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq")])
+dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq"), ExtResource("13_a6pah")])
 
 [node name="DialogueArea" type="Panel" parent="DialogueMachine" unique_id=1310490258]
 anchors_preset = -1
@@ -164,3 +165,5 @@ stretch_mode = 5
 script = ExtResource("19_wyrk2")
 
 [connection signal="chamber_1" from="." to="DialogueMachine" method="_on_chamber_chamber_1"]
+[connection signal="chamber_1_ended" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_1_ended"]
+[connection signal="chamber_2_started" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_2_started"]
