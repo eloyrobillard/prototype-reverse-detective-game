@@ -104,7 +104,6 @@ position = Vector2(-63, 35)
 script = ExtResource("8_wsb82")
 
 [node name="DialogueMachine" type="CanvasLayer" parent="." unique_id=1023999133]
-visible = false
 script = ExtResource("9_l1v07")
 dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq"), ExtResource("13_a6pah")])
 
@@ -131,9 +130,9 @@ stretch_mode = 5
 
 [node name="SpeakerName" type="Label" parent="DialogueMachine/DialogueArea" unique_id=470955044]
 layout_mode = 1
-offset_left = 218.0
+offset_left = 100.0
 offset_top = 36.0
-offset_right = 482.0
+offset_right = 364.0
 offset_bottom = 95.0
 theme_override_fonts/font = SubResource("SystemFont_sf0hk")
 theme_override_font_sizes/font_size = 54
@@ -142,9 +141,9 @@ text = "Genya"
 [node name="DialogueText" type="Label" parent="DialogueMachine/DialogueArea" unique_id=927062487]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 218.0
+offset_left = 100.0
 offset_top = 113.0
-offset_right = 1497.0
+offset_right = 1379.0
 offset_bottom = 338.0
 theme_override_fonts/font = SubResource("SystemFont_0ljab")
 theme_override_font_sizes/font_size = 54
