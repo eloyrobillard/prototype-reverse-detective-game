@@ -167,6 +167,7 @@ stretch_mode = 5
 script = ExtResource("19_wyrk2")
 
 [connection signal="chamber_1" from="." to="DialogueMachine" method="_on_chamber_chamber_1"]
+[connection signal="next_to_mina" from="Genya" to="DialogueMachine" method="_on_genya_next_to_mina"]
 [connection signal="chamber_1_ended" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_1_ended"]
 [connection signal="chamber_2_ended" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_chamber_2_ended"]
 [connection signal="chamber_2_started" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_2_started"]

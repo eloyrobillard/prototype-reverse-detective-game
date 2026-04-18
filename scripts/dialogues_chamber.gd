@@ -3,6 +3,7 @@ extends DialogueMachine
 signal chamber_1_ended
 signal chamber_2_started
 signal chamber_2_ended
+signal chamber_3_ended
 
 
 func _on_chamber_chamber_1() -> void:
@@ -21,3 +22,10 @@ func _on_chamber_2() -> void:
 
 	set_dialogue(1, _on_chamber_2_end)
 	chamber_2_started.emit()
+
+
+func _on_genya_next_to_mina() -> void:
+	var _on_chamber_3_end = func():
+		chamber_3_ended.emit()
+
+	set_dialogue(2, _on_chamber_3_end)
