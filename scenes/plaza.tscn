@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dvn1w8dosdosj" path="res://assets/plaza.png" id="1_aup4n"]
 [ext_resource type="PackedScene" uid="uid://dsq2pn6a0o5d1" path="res://scenes/genya.tscn" id="2_576sq"]
 [ext_resource type="PackedScene" uid="uid://6ja46rwum77i" path="res://scenes/static_mud_man.tscn" id="3_e5028"]
+[ext_resource type="Script" uid="uid://dxbcpr7ckswdo" path="res://scripts/camera_2d.gd" id="3_hlk8r"]
 [ext_resource type="PackedScene" uid="uid://dii2gtu0ptvg8" path="res://scenes/alucard.tscn" id="4_4qx50"]
 [ext_resource type="PackedScene" uid="uid://drpwpfqee3186" path="res://scenes/sitting_villager.tscn" id="5_5qyod"]
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="7_6vs6p"]
@@ -73,7 +74,7 @@ scale = Vector2(1.282, 1.282)
 texture = ExtResource("1_aup4n")
 
 [node name="Genya" parent="." unique_id=1280385687 instance=ExtResource("2_576sq")]
-position = Vector2(-290, 19)
+position = Vector2(309, 19)
 scale = Vector2(1, 1)
 collision_layer = 4
 collision_mask = 1
@@ -86,6 +87,7 @@ limit_left = -327
 limit_top = -102
 limit_right = 327
 limit_bottom = 102
+script = ExtResource("3_hlk8r")
 
 [node name="LeftStairBottom" type="CollisionShape2D" parent="." unique_id=1659683953]
 position = Vector2(-278.5, 73)
@@ -124,10 +126,12 @@ shape = SubResource("RectangleShape2D_wgagd")
 [node name="StaticMudMan" parent="." unique_id=275132933 instance=ExtResource("3_e5028")]
 position = Vector2(-248, 69)
 scale = Vector2(1, 1)
+collision_mask = 1
 
 [node name="Alucard" parent="." unique_id=613026324 instance=ExtResource("4_4qx50")]
 position = Vector2(-223, 59)
 scale = Vector2(1, 1)
+collision_mask = 1
 
 [node name="DialogueLayer" type="CanvasLayer" parent="." unique_id=1157859090]
 script = ExtResource("7_l5ok7")
@@ -156,9 +160,9 @@ stretch_mode = 5
 
 [node name="SpeakerName" type="Label" parent="DialogueLayer/DialogueArea" unique_id=1233411883]
 layout_mode = 1
-offset_left = 218.0
+offset_left = 83.0
 offset_top = 36.0
-offset_right = 482.0
+offset_right = 347.0
 offset_bottom = 95.0
 theme_override_fonts/font = SubResource("SystemFont_wgagd")
 theme_override_font_sizes/font_size = 54
@@ -167,10 +171,10 @@ text = "Genya"
 [node name="DialogueText" type="Label" parent="DialogueLayer/DialogueArea" unique_id=974629625]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 218.0
+offset_left = 83.0
 offset_top = 113.0
-offset_right = 1497.0
-offset_bottom = 338.0
+offset_right = 1362.0
+offset_bottom = 342.0
 theme_override_fonts/font = SubResource("SystemFont_d468g")
 theme_override_font_sizes/font_size = 54
 text = "Unfortunately, there was no one in the previous life to teach me to shut my mouth. That would have come in handy when facing the guardian of Heaven's gate..."
@@ -242,9 +246,13 @@ position = Vector2(0, 74)
 shape = SubResource("RectangleShape2D_g1rmw")
 disabled = true
 
+[node name="Marker2D" type="Marker2D" parent="." unique_id=343930183]
+position = Vector2(-156, 0)
+
 [connection signal="alucard_1" from="Alucard" to="DialogueLayer" method="_on_alucard_alucard_1"]
 [connection signal="left_scene" from="Alucard" to="Genya" method="_on_alucard_left_scene"]
 [connection signal="left_scene" from="Alucard" to="ExitTrigger" method="_on_alucard_left_scene"]
+[connection signal="alucard_dialogue_ended" from="DialogueLayer" to="Genya/Camera2D" method="_on_dialogue_layer_alucard_dialogue_ended"]
 [connection signal="alucard_dialogue_ended" from="DialogueLayer" to="Alucard" method="_on_dialogue_layer_alucard_dialogue_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="Mina" method="_on_dialogue_layer_angel_1_ended"]
 [connection signal="angel_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_angel_1_ended"]
@@ -258,6 +266,7 @@ disabled = true
 [connection signal="start_faceless_event_1" from="FacelessEvent1Trigger" to="DialogueLayer" method="_on_faceless_event_1_trigger_start_faceless_event_1"]
 [connection signal="launch_dialogue_2" from="FacelessOne" to="DialogueLayer" method="_on_faceless_one_launch_dialogue_2"]
 [connection signal="body_entered" from="Angle1Trigger" to="Angle1Trigger" method="_on_body_entered"]
+[connection signal="start_angel_1" from="Angle1Trigger" to="Genya/Camera2D" method="_on_angle_1_trigger_start_angel_1"]
 [connection signal="start_angel_1" from="Angle1Trigger" to="DialogueLayer" method="_on_angle_1_trigger_start_angel_1"]
 [connection signal="body_entered" from="ExitTrigger" to="ExitTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="ExitTrigger" to="ExitTrigger" method="_on_body_exited"]

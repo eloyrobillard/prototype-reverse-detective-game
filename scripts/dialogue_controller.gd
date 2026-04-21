@@ -15,6 +15,7 @@ signal faceless_2_ended
 signal angel_1_ended(transformation_timing: float)
 signal albus_1_ended
 signal angel_2_ended
+signal albus_appeared
 
 var current_line = -1
 var max_lines = 0

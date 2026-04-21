@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var dialogue_layer: CanvasLayer
 
 signal launch_dialogue_2
+signal albus_appeared
 
 const SPEED = 150
 
@@ -77,5 +78,6 @@ func _on_dialogue_layer_angel_1_ended(transformation_timing: float) -> void:
 	alpha_tween.tween_callback(func(): get_tree().root.add_child(albus))
 	alpha_tween.tween_callback(func(): albus.global_position = Vector2(global_position.x, global_position.y - 7))
 	alpha_tween.tween_callback(func(): albus.launch_dialogue_1.connect(dialogue_layer._trigger_start_albus_1))
+	alpha_tween.tween_callback(func(): albus_appeared.emit())
 	alpha_tween.tween_callback(func(): cl.queue_free())
 	alpha_tween.tween_callback(func(): queue_free())
