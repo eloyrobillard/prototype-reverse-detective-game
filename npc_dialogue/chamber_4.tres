@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://bnwq30gkihloq"]
 
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_cjkyu"]
-[ext_resource type="Texture2D" uid="uid://c6bj5f8o85qxf" path="res://assets/character_icons/alucard.png" id="2_tmnsv"]
+[ext_resource type="Texture2D" uid="uid://c285y5fcnebsf" path="res://assets/character_icons/alucard-2.png" id="2_tmnsv"]
 
 [resource]
 script = ExtResource("1_cjkyu")

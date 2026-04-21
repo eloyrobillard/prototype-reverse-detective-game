@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://e8qvdww2cm6e" path="res://scripts/alucard.gd" id="1_g5e3i"]
 [ext_resource type="Texture2D" uid="uid://bvu8th12s1pis" path="res://assets/PlayStation - Castlevania_ Symphony of the Night - Playable Characters - Alucard.png" id="1_x75ur"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0no3"]
+atlas = ExtResource("1_x75ur")
+region = Rect2(777, 8, 42, 54)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpp6m"]
 atlas = ExtResource("1_x75ur")
 region = Rect2(709, 282, 33, 55)
@@ -45,6 +49,14 @@ region = Rect2(743, 1250, 45, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j3tob"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0no3")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jpp6m")
@@ -116,7 +128,8 @@ script = ExtResource("1_g5e3i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=73932271]
 sprite_frames = SubResource("SpriteFrames_j3tob")
-animation = &"sitting"
+animation = &"idle"
+autoplay = "sitting"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564852445]
 position = Vector2(-0.73076916, 5)

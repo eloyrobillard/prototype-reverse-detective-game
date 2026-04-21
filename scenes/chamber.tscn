@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bocewoyyianmh" path="res://assets/Game Boy Advance - Castlevania_ Aria of Sorrow - Backgrounds - Top Floor.png" id="1_ecgjq"]
 [ext_resource type="PackedScene" uid="uid://dsq2pn6a0o5d1" path="res://scenes/genya.tscn" id="2_ek1h7"]
 [ext_resource type="Texture2D" uid="uid://drj2fs1mhkawp" path="res://assets/Game Boy Advance - Castlevania_ Aria of Sorrow - Non-Playable Characters - Mina Hakuba.png" id="3_rst5n"]
+[ext_resource type="Script" uid="uid://cwvywqhxk2fph" path="res://scripts/mina_corpse.gd" id="4_4p6b2"]
 [ext_resource type="PackedScene" uid="uid://bkuxkjj4cjxfh" path="res://scenes/albus.tscn" id="4_it6qv"]
 [ext_resource type="PackedScene" uid="uid://6ja46rwum77i" path="res://scenes/static_mud_man.tscn" id="5_doea2"]
 [ext_resource type="Script" uid="uid://dqhulmyug3y7k" path="res://scripts/albus_2.gd" id="5_ovca5"]
@@ -14,6 +15,8 @@
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="10_4p6b2"]
 [ext_resource type="Resource" uid="uid://duypar1b8nw1k" path="res://npc_dialogue/chamber_1.tres" id="11_u75jq"]
 [ext_resource type="Resource" uid="uid://bts7baxvrre8w" path="res://npc_dialogue/chamber_2.tres" id="13_a6pah"]
+[ext_resource type="Resource" uid="uid://nscc02nu0kg1" path="res://npc_dialogue/chamber_3.tres" id="15_4dv8l"]
+[ext_resource type="Resource" uid="uid://bnwq30gkihloq" path="res://npc_dialogue/chamber_4.tres" id="17_kgsd4"]
 [ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="17_u6s8d"]
 [ext_resource type="Texture2D" uid="uid://64ocnfmbi78i" path="res://assets/character_icons/dialogue_cursor.png" id="18_8vi0b"]
 [ext_resource type="Script" uid="uid://dcfejpiwg7mew" path="res://scripts/dialogue/dialogue_cursor.gd" id="19_wyrk2"]
@@ -77,6 +80,7 @@ position = Vector2(8, 44)
 texture = ExtResource("3_rst5n")
 region_enabled = true
 region_rect = Rect2(32, 48, 40, 8)
+script = ExtResource("4_4p6b2")
 
 [node name="Genya" parent="." unique_id=2060122170 instance=ExtResource("2_ek1h7")]
 position = Vector2(-109, 13)
@@ -92,8 +96,8 @@ limit_right = 120
 limit_bottom = 80
 
 [node name="Albus" parent="." unique_id=129161835 instance=ExtResource("4_it6qv")]
-position = Vector2(40, 46)
-scale = Vector2(0.842, 0.842)
+position = Vector2(40, 48)
+scale = Vector2(0.742, 0.742)
 script = ExtResource("5_ovca5")
 
 [node name="StaticMudMan" parent="." unique_id=791297083 instance=ExtResource("5_doea2")]
@@ -105,7 +109,7 @@ script = ExtResource("8_wsb82")
 
 [node name="DialogueMachine" type="CanvasLayer" parent="." unique_id=1023999133]
 script = ExtResource("9_l1v07")
-dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq"), ExtResource("13_a6pah")])
+dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq"), ExtResource("13_a6pah"), ExtResource("15_4dv8l"), ExtResource("17_kgsd4")])
 
 [node name="DialogueArea" type="Panel" parent="DialogueMachine" unique_id=1310490258]
 anchors_preset = -1
@@ -166,10 +170,17 @@ texture = ExtResource("18_8vi0b")
 stretch_mode = 5
 script = ExtResource("19_wyrk2")
 
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1245934635]
+position = Vector2(20, 32)
+
 [connection signal="chamber_1" from="." to="DialogueMachine" method="_on_chamber_chamber_1"]
+[connection signal="chamber_4_setup" from="." to="MinaCorpse" method="_on_chamber_chamber_4_setup"]
+[connection signal="chamber_4_setup" from="." to="Alucard" method="_on_chamber_chamber_4_setup"]
+[connection signal="chamber_4_start" from="." to="DialogueMachine" method="_on_chamber_chamber_4_start"]
 [connection signal="next_to_mina" from="Genya" to="DialogueMachine" method="_on_genya_next_to_mina"]
 [connection signal="chamber_1_ended" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_1_ended"]
 [connection signal="chamber_2_ended" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_chamber_2_ended"]
 [connection signal="chamber_2_started" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_2_started"]
+[connection signal="chamber_3_ended" from="DialogueMachine" to="." method="_on_dialogue_machine_chamber_3_ended"]
 [connection signal="dialogue_ended" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_dialogue_ended"]
 [connection signal="running_dialogue" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_running_dialogue"]
