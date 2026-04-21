@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_dialogue_layer_running_dialogue() -> void:
 	set_process_input(false)
+	direction = 0
 	animated_sprite_2d.play("idle")
 
 
