@@ -29,3 +29,7 @@ func _on_genya_next_to_mina() -> void:
 		chamber_3_ended.emit()
 
 	set_dialogue(2, _on_chamber_3_end)
+
+
+func _on_chamber_chamber_4_start() -> void:
+	set_dialogue(3, func(): pass)
