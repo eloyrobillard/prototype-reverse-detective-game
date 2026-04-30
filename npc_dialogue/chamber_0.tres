@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dht721aj5dcpg"]
+
+[ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="1_igsjp"]
+[ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="2_s8y6r"]
+
+[resource]
+script = ExtResource("1_igsjp")
+speaker_names = Array[String](["Genya"])
+speaker_icons = Array[Texture2D]([ExtResource("2_s8y6r")])
+lines = Array[String](["!!"])
+line_speaker_name_index = Array[int]([0])
+line_speaker_icon_index = Array[int]([0])
+metadata/_custom_type_script = "uid://5lyu4kom16io"

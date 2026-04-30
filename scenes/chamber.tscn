@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dqhulmyug3y7k" path="res://scripts/albus_2.gd" id="5_ovca5"]
 [ext_resource type="Script" uid="uid://bbl1ycpdkooib" path="res://scripts/genya_2.gd" id="5_xch0b"]
 [ext_resource type="PackedScene" uid="uid://dii2gtu0ptvg8" path="res://scenes/alucard.tscn" id="6_hn43x"]
+[ext_resource type="Script" uid="uid://badlhimv0tuiq" path="res://scripts/camera_2d_2.gd" id="7_8q6pc"]
 [ext_resource type="Script" uid="uid://cay02ka1iko7u" path="res://scripts/alucard_2.gd" id="8_wsb82"]
 [ext_resource type="Script" uid="uid://vky610quy50t" path="res://scripts/dialogues_chamber.gd" id="9_l1v07"]
 [ext_resource type="Script" uid="uid://5lyu4kom16io" path="res://scripts/dialogue/dialogue.gd" id="10_4p6b2"]
@@ -19,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://bnwq30gkihloq" path="res://npc_dialogue/chamber_4.tres" id="17_kgsd4"]
 [ext_resource type="Texture2D" uid="uid://bnpaaqvr7uniy" path="res://assets/character_icons/genya.png" id="17_u6s8d"]
 [ext_resource type="Texture2D" uid="uid://64ocnfmbi78i" path="res://assets/character_icons/dialogue_cursor.png" id="18_8vi0b"]
+[ext_resource type="Resource" uid="uid://dht721aj5dcpg" path="res://npc_dialogue/chamber_0.tres" id="18_kgsd4"]
 [ext_resource type="Script" uid="uid://dcfejpiwg7mew" path="res://scripts/dialogue/dialogue_cursor.gd" id="19_wyrk2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ecgjq"]
@@ -94,6 +96,7 @@ limit_left = -120
 limit_top = -80
 limit_right = 120
 limit_bottom = 80
+script = ExtResource("7_8q6pc")
 
 [node name="Albus" parent="." unique_id=129161835 instance=ExtResource("4_it6qv")]
 position = Vector2(40, 48)
@@ -109,7 +112,7 @@ script = ExtResource("8_wsb82")
 
 [node name="DialogueMachine" type="CanvasLayer" parent="." unique_id=1023999133]
 script = ExtResource("9_l1v07")
-dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq"), ExtResource("13_a6pah"), ExtResource("15_4dv8l"), ExtResource("17_kgsd4")])
+dialogues = Array[ExtResource("10_4p6b2")]([ExtResource("11_u75jq"), ExtResource("13_a6pah"), ExtResource("15_4dv8l"), ExtResource("17_kgsd4"), ExtResource("18_kgsd4")])
 
 [node name="DialogueArea" type="Panel" parent="DialogueMachine" unique_id=1310490258]
 anchors_preset = -1
@@ -173,11 +176,13 @@ script = ExtResource("19_wyrk2")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1245934635]
 position = Vector2(20, 32)
 
-[connection signal="chamber_1" from="." to="DialogueMachine" method="_on_chamber_chamber_1"]
 [connection signal="chamber_4_setup" from="." to="MinaCorpse" method="_on_chamber_chamber_4_setup"]
 [connection signal="chamber_4_setup" from="." to="Alucard" method="_on_chamber_chamber_4_setup"]
 [connection signal="chamber_4_start" from="." to="DialogueMachine" method="_on_chamber_chamber_4_start"]
+[connection signal="chamber_0" from="Genya" to="DialogueMachine" method="_on_genya_chamber_0"]
 [connection signal="next_to_mina" from="Genya" to="DialogueMachine" method="_on_genya_next_to_mina"]
+[connection signal="chamber_0_ended" from="DialogueMachine" to="Camera2D" method="_on_dialogue_machine_chamber_0_ended"]
+[connection signal="chamber_1_ended" from="DialogueMachine" to="Camera2D" method="_on_dialogue_machine_chamber_1_ended"]
 [connection signal="chamber_1_ended" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_1_ended"]
 [connection signal="chamber_2_ended" from="DialogueMachine" to="Genya" method="_on_dialogue_machine_chamber_2_ended"]
 [connection signal="chamber_2_started" from="DialogueMachine" to="Albus" method="_on_dialogue_machine_chamber_2_started"]

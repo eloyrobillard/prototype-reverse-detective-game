@@ -66,5 +66,6 @@ func _on_dialogue_layer_angel_2_ended() -> void:
 	move = true
 	move_to_x = 0.0
 	move_cb = func():
+		await get_tree().create_timer(1.0).timeout
 		left_scene.emit()
 		queue_free()

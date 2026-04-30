@@ -9,7 +9,7 @@
 script = ExtResource("1_t7fxm")
 speaker_names = Array[String](["Genya", "Alucard", "Albus"])
 speaker_icons = Array[Texture2D]([ExtResource("2_mw0cd"), ExtResource("3_fyq28"), ExtResource("4_f2kbm")])
-lines = Array[String](["Bugger. Is the Angel dead?", "It would seem that way.", "GWAHAHAHAHA!"])
+lines = Array[String](["Bugger. Is the Angel dead?", "It would seem so.", "GWAHAHAHAHA!"])
 line_speaker_name_index = Array[int]([0, 1, 2])
 line_speaker_icon_index = Array[int]([0, 1, 2])
 metadata/_custom_type_script = "uid://5lyu4kom16io"

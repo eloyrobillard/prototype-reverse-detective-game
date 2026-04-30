@@ -1,12 +1,13 @@
 extends DialogueMachine
 
+signal chamber_0_ended
 signal chamber_1_ended
 signal chamber_2_started
 signal chamber_2_ended
 signal chamber_3_ended
 
 
-func _on_chamber_chamber_1() -> void:
+func _on_chamber_1() -> void:
 	var _on_chamber_1_end = func():
 		running_dialogue.emit()
 		chamber_1_ended.emit()
@@ -33,3 +34,13 @@ func _on_genya_next_to_mina() -> void:
 
 func _on_chamber_chamber_4_start() -> void:
 	set_dialogue(3, func(): pass)
+
+
+func _on_genya_chamber_0() -> void:
+	var _on_chamber_0_end = func():
+		chamber_0_ended.emit()
+		running_dialogue.emit()
+		await get_tree().create_timer(1.5).timeout
+		_on_chamber_1()
+
+	set_dialogue(4, _on_chamber_0_end)

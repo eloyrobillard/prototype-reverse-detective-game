@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 signal next_to_mina
+signal chamber_0
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -220.0
@@ -18,6 +19,8 @@ var move_cb: Callable
 func _ready() -> void:
 	set_process_input(can_move)
 	animated_sprite_2d.flip_h = looking_right
+	await get_tree().create_timer(1.0).timeout
+	chamber_0.emit()
 
 
 func _input(event: InputEvent) -> void:

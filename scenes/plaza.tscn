@@ -261,6 +261,7 @@ position = Vector2(-156, 0)
 [connection signal="faceless_1_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_1_ended"]
 [connection signal="faceless_2_ended" from="DialogueLayer" to="FacelessOne" method="_on_dialogue_layer_faceless_2_ended"]
 [connection signal="running_dialogue" from="DialogueLayer" to="Genya" method="_on_dialogue_layer_running_dialogue"]
+[connection signal="left_scene" from="Mina" to="Genya/Camera2D" method="_on_mina_left_scene"]
 [connection signal="left_scene" from="Mina" to="Alucard" method="_on_mina_left_scene"]
 [connection signal="body_entered" from="FacelessEvent1Trigger" to="FacelessEvent1Trigger" method="_on_body_entered"]
 [connection signal="start_faceless_event_1" from="FacelessEvent1Trigger" to="DialogueLayer" method="_on_faceless_event_1_trigger_start_faceless_event_1"]

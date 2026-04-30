@@ -10,7 +10,7 @@
 script = ExtResource("1_e07eo")
 speaker_names = Array[String](["Albus", "Genya", "Alucard"])
 speaker_icons = Array[Texture2D]([ExtResource("2_xw7kr"), ExtResource("3_37rie"), ExtResource("4_huves"), ExtResource("5_wetae")])
-lines = Array[String](["...", "I messed up.", "Yes.", "I killed an angel.", "Yes, you killed an incarnation of the soul of God Himself. The very same crime He cast Lucifer into Hell for.", "I didn't mean to, it just sort of happened. Who knew angels could die so easily?", "On the positive side since you already reside in Hell, things cannot get much worse I suppose.", "Hahahaha..."])
+lines = Array[String](["...", "I messed up.", "Yes.", "I killed an angel.", "The very same crime He cast Lucifer into Hell for.", "I didn't mean to, it just sort of happened. Who knew angels could die so easily?", "On the positive side since you already reside in Hell, things cannot get much worse I suppose.", "Hahahaha..."])
 line_speaker_name_index = Array[int]([0, 0, 1, 0, 2, 0, 1, 0])
 line_speaker_icon_index = Array[int]([0, 0, 1, 0, 2, 0, 1, 3])
 metadata/_custom_type_script = "uid://5lyu4kom16io"

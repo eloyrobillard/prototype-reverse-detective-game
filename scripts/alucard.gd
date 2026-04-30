@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
 
 
 func _on_mina_left_scene() -> void:
+	await get_tree().create_timer(2.0).timeout
 	animated_sprite_2d.play("kneel-to-stand")
 	await animated_sprite_2d.animation_finished
 	velocity.y = JUMP_VELOCITY
