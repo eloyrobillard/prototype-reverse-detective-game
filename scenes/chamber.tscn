@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://64ocnfmbi78i" path="res://assets/character_icons/dialogue_cursor.png" id="18_8vi0b"]
 [ext_resource type="Resource" uid="uid://dht721aj5dcpg" path="res://npc_dialogue/chamber_0.tres" id="18_kgsd4"]
 [ext_resource type="Script" uid="uid://dcfejpiwg7mew" path="res://scripts/dialogue/dialogue_cursor.gd" id="19_wyrk2"]
+[ext_resource type="AudioStream" uid="uid://c6y866p1bpqei" path="res://assets/sfx/metalgearsolid_spotted.mp3" id="23_alxck"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ecgjq"]
 
@@ -172,6 +173,9 @@ grow_vertical = 0
 texture = ExtResource("18_8vi0b")
 stretch_mode = 5
 script = ExtResource("19_wyrk2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueMachine" unique_id=233235060]
+stream = ExtResource("23_alxck")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1245934635]
 position = Vector2(20, 32)

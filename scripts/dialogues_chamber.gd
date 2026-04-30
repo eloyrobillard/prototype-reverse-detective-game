@@ -1,5 +1,7 @@
 extends DialogueMachine
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 signal chamber_0_ended
 signal chamber_1_ended
 signal chamber_2_started
@@ -44,3 +46,4 @@ func _on_genya_chamber_0() -> void:
 		_on_chamber_1()
 
 	set_dialogue(4, _on_chamber_0_end)
+	audio_stream_player.play()
